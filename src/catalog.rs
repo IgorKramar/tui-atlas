@@ -1,3 +1,4 @@
+use crate::language::Language;
 use crate::process::{expand_home, find_executable};
 use serde::Deserialize;
 use std::{collections::HashMap, io, path::PathBuf};
@@ -52,6 +53,7 @@ pub struct Guide {
 
 #[derive(Clone)]
 pub struct Program {
+    pub language: Language,
     pub info: Inventory,
     pub guide: Guide,
     pub executable: Option<PathBuf>,
@@ -76,7 +78,12 @@ impl Program {
     }
 }
 
+#[cfg(test)]
 pub fn load() -> io::Result<Vec<Program>> {
+    load_in(Language::Ru)
+}
+
+pub fn load_in(lang: Language) -> io::Result<Vec<Program>> {
     let inventory: Vec<Inventory> = serde_json::from_str(include_str!("../data/inventory.json"))?;
     let mut guides = HashMap::new();
     for source in [
@@ -86,37 +93,36 @@ pub fn load() -> io::Result<Vec<Program>> {
     ] {
         for guide in serde_json::from_str::<Vec<Guide>>(source)? {
             if guides.insert(guide.id.clone(), guide).is_some() {
-                return Err(io::Error::other("Повторяющийся идентификатор карточки"));
+                return Err(io::Error::other(lang.text(
+                    "Повторяющийся идентификатор карточки",
+                    "Duplicate guide ID",
+                )));
             }
         }
     }
     let mut programs = Vec::new();
-    for info in inventory {
-        let guide = guides
-            .remove(&info.id)
-            .ok_or_else(|| io::Error::other(format!("Нет карточки {}", info.id)))?;
-        let search_text = format!(
-            "{} {} {} {} {} {} {}",
-            info.name,
-            info.id,
-            info.group,
-            guide.description,
-            guide
-                .shortcuts
-                .iter()
-                .map(|s| format!("{} {} {}", s.key, s.action, s.context))
-                .collect::<Vec<_>>()
-                .join(" "),
-            guide
-                .examples
-                .iter()
-                .map(|e| format!("{} {}", e.command, e.description))
-                .collect::<Vec<_>>()
-                .join(" "),
-            guide.notes.join(" ")
-        )
-        .to_lowercase();
+    for mut info in inventory {
+        let mut guide = guides.remove(&info.id).ok_or_else(|| {
+            io::Error::other(crate::tr_format!(
+                lang,
+                "Нет карточки {}",
+                "Missing guide for {}",
+                info.id
+            ))
+        })?;
+        let mut search_text = format!("{} {}", info.id, info.executable);
+        display_fields(&mut info, &mut guide, |field| {
+            search_text.push(' ');
+            search_text.push_str(field);
+            search_text.push(' ');
+            search_text.push_str(english(field));
+            if lang == Language::En {
+                *field = english(field).into();
+            }
+        });
+        let search_text = search_text.to_lowercase();
         let mut program = Program {
+            language: lang,
             info,
             guide,
             executable: None,
@@ -126,20 +132,79 @@ pub fn load() -> io::Result<Vec<Program>> {
         programs.push(program);
     }
     if !guides.is_empty() {
-        return Err(io::Error::other("Карточка отсутствует в инвентаризации"));
+        return Err(io::Error::other(lang.text(
+            "Карточка отсутствует в инвентаризации",
+            "Guide is missing from the inventory",
+        )));
     }
     programs.sort_by_key(|p| p.info.name.to_lowercase());
     Ok(programs)
 }
 
+fn english(value: &str) -> &str {
+    static ENGLISH: std::sync::LazyLock<HashMap<String, String>> = std::sync::LazyLock::new(|| {
+        let mut entries = HashMap::new();
+        for source in [
+            include_str!("../data/catalog-en-a.json"),
+            include_str!("../data/catalog-en-b.json"),
+            include_str!("../data/catalog-en-c.json"),
+        ] {
+            for (key, value) in serde_json::from_str::<HashMap<String, String>>(source)
+                .expect("embedded catalog translations")
+            {
+                assert!(
+                    entries.insert(key, value).is_none(),
+                    "duplicate catalog translation"
+                );
+            }
+        }
+        entries
+    });
+    ENGLISH.get(value).map(String::as_str).unwrap_or(value)
+}
+
+fn display_fields(info: &mut Inventory, guide: &mut Guide, mut visit: impl FnMut(&mut String)) {
+    visit(&mut info.name);
+    visit(&mut info.group);
+    visit(&mut guide.description);
+    for shortcut in &mut guide.shortcuts {
+        visit(&mut shortcut.key);
+        visit(&mut shortcut.action);
+        visit(&mut shortcut.context);
+    }
+    for example in &mut guide.examples {
+        visit(&mut example.command);
+        visit(&mut example.description);
+    }
+    for note in &mut guide.notes {
+        visit(note);
+    }
+    for doc in &mut guide.doc_files {
+        visit(&mut doc.label);
+    }
+    for source in &mut guide.sources {
+        visit(&mut source.title);
+    }
+}
+
 pub fn personal_sources(program: &Program) -> Vec<DocFile> {
+    let lang = program.language;
     let files: &[(&str, &str)] = match program.info.id.as_str() {
-        "tmux" => &[("~/.config/tmux/tmux.conf", "Личный конфиг tmux")],
-        "yazi" => &[("~/.config/yazi/keymap.toml", "Личные сочетания Yazi")],
-        "nchat" => &[("~/.config/nchat/key.conf", "Личные сочетания nchat")],
+        "tmux" => &[(
+            "~/.config/tmux/tmux.conf",
+            lang.text("Личный конфиг tmux", "Personal tmux configuration"),
+        )],
+        "yazi" => &[(
+            "~/.config/yazi/keymap.toml",
+            lang.text("Личные сочетания Yazi", "Personal Yazi shortcuts"),
+        )],
+        "nchat" => &[(
+            "~/.config/nchat/key.conf",
+            lang.text("Личные сочетания nchat", "Personal nchat shortcuts"),
+        )],
         "nvim" => &[(
             "~/.config/nvim/lua/config/keymaps.lua",
-            "Личные сочетания Neovim",
+            lang.text("Личные сочетания Neovim", "Personal Neovim shortcuts"),
         )],
         _ => &[],
     };
@@ -156,6 +221,62 @@ pub fn personal_sources(program: &Program) -> Vec<DocFile> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn translations_leave_command_identities_and_document_locations_untouched() {
+        let russian = load_in(Language::Ru).unwrap();
+        let translated_catalogue = load_in(Language::En).unwrap();
+        for original in &russian {
+            let translated = translated_catalogue
+                .iter()
+                .find(|p| p.info.id == original.info.id)
+                .unwrap();
+            assert_eq!(translated.info.executable, original.info.executable);
+            assert_eq!(translated.info.version, original.info.version);
+            assert_eq!(translated.guide.id, original.guide.id);
+            assert_eq!(translated.guide.launch_args, original.guide.launch_args);
+            assert_eq!(translated.guide.help_args, original.guide.help_args);
+            assert_eq!(translated.guide.man_pages, original.guide.man_pages);
+            assert_eq!(translated.command_line(), original.command_line());
+            assert_eq!(
+                translated
+                    .guide
+                    .doc_files
+                    .iter()
+                    .map(|d| &d.path)
+                    .collect::<Vec<_>>(),
+                original
+                    .guide
+                    .doc_files
+                    .iter()
+                    .map(|d| &d.path)
+                    .collect::<Vec<_>>()
+            );
+            assert_eq!(
+                translated
+                    .guide
+                    .sources
+                    .iter()
+                    .map(|d| &d.location)
+                    .collect::<Vec<_>>(),
+                original
+                    .guide
+                    .sources
+                    .iter()
+                    .map(|d| &d.location)
+                    .collect::<Vec<_>>()
+            );
+            let mut fields = original.clone();
+            display_fields(&mut fields.info, &mut fields.guide, |field| {
+                assert!(translated.search_text.contains(&field.to_lowercase()));
+                assert!(
+                    original
+                        .search_text
+                        .contains(&english(field).to_lowercase())
+                );
+            });
+        }
+    }
 
     #[test]
     fn catalogue_has_every_app_and_traced_guides() {

@@ -1,3 +1,4 @@
+use crate::language::Language;
 use std::{
     io::{self, Read},
     os::unix::process::CommandExt,
@@ -7,8 +8,18 @@ use std::{
     time::{Duration, Instant},
 };
 
+#[cfg(test)]
 pub fn parse_arguments(value: &str) -> io::Result<Vec<String>> {
-    shlex::split(value).ok_or_else(|| io::Error::other("Незакрытая кавычка в аргументах"))
+    parse_arguments_in(value, Language::Ru)
+}
+
+pub fn parse_arguments_in(value: &str, lang: Language) -> io::Result<Vec<String>> {
+    shlex::split(value).ok_or_else(|| {
+        io::Error::other(lang.text(
+            "Незакрытая кавычка в аргументах",
+            "Unclosed quote in arguments",
+        ))
+    })
 }
 
 pub fn clean_text(value: &[u8]) -> String {
@@ -73,7 +84,17 @@ fn command(executable: &Path, args: &[String]) -> Command {
     }
 }
 
+#[cfg(test)]
 pub fn capture(executable: &Path, args: &[String], timeout: Duration) -> io::Result<String> {
+    capture_in(executable, args, timeout, Language::Ru)
+}
+
+pub fn capture_in(
+    executable: &Path,
+    args: &[String],
+    timeout: Duration,
+    lang: Language,
+) -> io::Result<String> {
     const LIMIT: u64 = 2 * 1024 * 1024;
     let mut child = command(executable, args)
         .env("NO_COLOR", "1")
@@ -128,13 +149,23 @@ pub fn capture(executable: &Path, args: &[String], timeout: Duration) -> io::Res
         text.push_str(errors.trim());
     }
     if timed_out {
-        text.push_str("\n\n[Источник превысил время ожидания и остановлен]");
+        text.push_str(lang.text(
+            "\n\n[Источник превысил время ожидания и остановлен]",
+            "\n\n[Source timed out and was stopped]",
+        ));
     }
     if stdout.len() as u64 >= LIMIT || stderr.len() as u64 >= LIMIT {
-        text.push_str("\n\n[Справка обрезана: источник больше 2 МиБ]");
+        text.push_str(lang.text(
+            "\n\n[Справка обрезана: источник больше 2 МиБ]",
+            "\n\n[Help truncated: source exceeds 2 MiB]",
+        ));
     }
     if !status.success() && text.trim().is_empty() {
-        text = format!("Источник завершился с ошибкой: {status}");
+        text = crate::tr_format!(
+            lang,
+            "Источник завершился с ошибкой: {status}",
+            "Source exited with an error: {status}"
+        );
     }
     Ok(text)
 }
@@ -159,6 +190,32 @@ pub fn foreground(executable: &Path, args: &[String]) -> io::Result<ExitStatus> 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn english_errors_do_not_translate_external_output_or_shell_arguments() {
+        assert!(
+            parse_arguments_in("'", Language::En)
+                .unwrap_err()
+                .to_string()
+                .contains("Unclosed quote")
+        );
+        let output = capture_in(
+            Path::new("/bin/sh"),
+            &["-c".into(), "printf 'Оригинальный текст'".into()],
+            Duration::from_secs(2),
+            Language::En,
+        )
+        .unwrap();
+        assert_eq!(output, "Оригинальный текст");
+        let output = capture_in(
+            Path::new("/bin/sh"),
+            &["-c".into(), "sleep 8 & wait".into()],
+            Duration::from_millis(150),
+            Language::En,
+        )
+        .unwrap();
+        assert!(output.contains("Source timed out and was stopped"));
+    }
 
     #[test]
     fn arguments_preserve_quotes_and_do_not_interpret_shell() {

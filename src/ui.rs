@@ -39,9 +39,12 @@ pub fn draw(frame: &mut Frame, app: &mut App) {
     frame.render_widget(Block::new().style(Style::default().bg(BG).fg(TEXT)), area);
     if area.width < 36 || area.height < 12 {
         frame.render_widget(
-            Paragraph::new("TUI ATLAS\nУвеличьте терминал хотя бы до 36×12.\nq — выход")
-                .style(Style::default().fg(CYAN))
-                .wrap(Wrap { trim: false }),
+            Paragraph::new(app.language.text(
+                "TUI ATLAS\nУвеличьте терминал хотя бы до 36×12.\nq — выход",
+                "TUI ATLAS\nResize the terminal to at least 36×12.\nq — quit",
+            ))
+            .style(Style::default().fg(CYAN))
+            .wrap(Wrap { trim: false }),
             area,
         );
         return;
@@ -75,7 +78,7 @@ pub fn draw(frame: &mut Frame, app: &mut App) {
     footer(frame, app, chunks[3]);
     match app.mode {
         Mode::Launch => launch_dialog(frame, app),
-        Mode::Help => help_dialog(frame),
+        Mode::Help => help_dialog(frame, app),
         _ => {}
     }
 }
@@ -90,10 +93,17 @@ fn header(frame: &mut Frame, app: &App, area: Rect) {
         Line::from(vec![
             Span::styled(" ◈ ", Style::default().fg(CYAN)),
             Span::styled("TUI ATLAS", Style::default().fg(TEXT).bold()),
-            Span::styled("  /  ваш терминальный набор", Style::default().fg(MUTED)),
+            Span::styled(
+                app.language
+                    .text("  /  ваш терминальный набор", "  /  your terminal toolkit"),
+                Style::default().fg(MUTED),
+            ),
         ]),
         Line::styled(
-            "   Находите. Изучайте. Запускайте.",
+            app.language.text(
+                "   Находите. Изучайте. Запускайте.",
+                "   Discover. Learn. Launch.",
+            ),
             Style::default().fg(MUTED),
         ),
     ];
@@ -105,14 +115,22 @@ fn header(frame: &mut Frame, app: &App, area: Rect) {
         .count();
     let keys: usize = app.programs.iter().map(|p| p.guide.shortcuts.len()).sum();
     let text = if area.width > 65 {
-        format!("{installed} приложений  ·  {keys} сочетаний  ·  OFFLINE")
+        crate::tr_format!(
+            app.language,
+            "{installed} приложений  ·  {keys} сочетаний  ·  OFFLINE",
+            "{installed} apps  ·  {keys} shortcuts  ·  OFFLINE"
+        )
     } else {
-        format!("{installed} приложений")
+        crate::tr_format!(app.language, "{installed} приложений", "{installed} apps")
     };
     frame.render_widget(
         Paragraph::new(vec![
             Line::styled(text, Style::default().fg(CYAN)),
-            Line::styled("Каталог · 27 октября 2026", Style::default().fg(MUTED)),
+            Line::styled(
+                app.language
+                    .text("Каталог · 27 октября 2026", "Catalog · 27 October 2026"),
+                Style::default().fg(MUTED),
+            ),
         ])
         .right_aligned(),
         columns[1],
@@ -124,15 +142,23 @@ fn search(frame: &mut Frame, app: &App, area: Rect) {
         || (app.focus == Focus::Content && !app.find.is_empty() && app.mode != Mode::Filter);
     let editing = matches!(app.mode, Mode::Find | Mode::Filter);
     let label = if finding {
-        " ПОИСК В ТЕКСТЕ · Ctrl+f "
+        app.language
+            .text(" ПОИСК В ТЕКСТЕ · Ctrl+f ", " FIND IN TEXT · Ctrl+f ")
     } else {
-        " ПОИСК ПРИЛОЖЕНИЯ · / "
+        app.language
+            .text(" ПОИСК ПРИЛОЖЕНИЯ · / ", " FIND AN APP · / ")
     };
     let input = if finding { &app.find } else { &app.filter };
     let placeholder = if finding {
-        "текст, команда или сочетание…"
+        app.language.text(
+            "текст, команда или сочетание…",
+            "text, command or shortcut…",
+        )
     } else {
-        "название, категория или действие…"
+        app.language.text(
+            "название, категория или действие…",
+            "name, category or action…",
+        )
     };
     let border = block(label.into(), editing);
     let inner = border.inner(area);
@@ -158,8 +184,10 @@ fn search(frame: &mut Frame, app: &App, area: Rect) {
 
 fn catalogue(frame: &mut Frame, app: &mut App, area: Rect) {
     let border = block(
-        format!(
+        crate::tr_format!(
+            app.language,
             " ПРИЛОЖЕНИЯ · {} / {} ",
+            " APPS · {} / {} ",
             app.filtered.len(),
             app.programs.len()
         ),
@@ -199,8 +227,11 @@ fn catalogue(frame: &mut Frame, app: &mut App, area: Rect) {
     frame.render_stateful_widget(list, area, &mut app.list);
     if app.filtered.is_empty() {
         frame.render_widget(
-            Paragraph::new("\n  Ничего не найдено\n\n  Esc — очистить поиск")
-                .style(Style::default().fg(MUTED)),
+            Paragraph::new(app.language.text(
+                "\n  Ничего не найдено\n\n  Esc — очистить поиск",
+                "\n  Nothing found\n\n  Esc — clear search",
+            ))
+            .style(Style::default().fg(MUTED)),
             app.hits.catalogue,
         );
     }
@@ -220,7 +251,7 @@ fn content(frame: &mut Frame, app: &mut App, area: Rect) {
         })
         .unwrap_or_else(|| {
             (
-                "Пустой выбор".into(),
+                app.language.text("Пустой выбор", "No selection").into(),
                 String::new(),
                 String::new(),
                 String::new(),
@@ -242,9 +273,9 @@ fn content(frame: &mut Frame, app: &mut App, area: Rect) {
         Span::styled(format!("v{version}  "), Style::default().fg(LILAC)),
         Span::styled(
             if present {
-                "● установлено"
+                app.language.text("● установлено", "● installed")
             } else {
-                "○ не найдено"
+                app.language.text("○ не найдено", "○ not found")
             },
             Style::default().fg(if present { GREEN } else { PEACH }),
         ),
@@ -260,7 +291,7 @@ fn content(frame: &mut Frame, app: &mut App, area: Rect) {
         layout[0],
     );
     let mut x = layout[1].x + 1;
-    for (i, label) in Tab::LABELS.iter().enumerate() {
+    for (i, label) in Tab::labels(app.language).iter().enumerate() {
         let width = (label.width() as u16 + 2).min(layout[1].right().saturating_sub(x));
         if width == 0 {
             break;
@@ -309,8 +340,10 @@ fn content(frame: &mut Frame, app: &mut App, area: Rect) {
         app.scroll * 100 / app.max_scroll()
     };
     frame.render_widget(
-        Paragraph::new(format!(
+        Paragraph::new(crate::tr_format!(
+            app.language,
             " {} строк · {position}%  │  Ctrl+f — найти  ·  Enter — запуск ",
+            " {} lines · {position}%  │  Ctrl+f — find  ·  Enter — launch ",
             app.view.len()
         ))
         .style(Style::default().fg(MUTED))
@@ -321,9 +354,18 @@ fn content(frame: &mut Frame, app: &mut App, area: Rect) {
 
 fn footer(frame: &mut Frame, app: &App, area: Rect) {
     let shortcuts = match app.mode {
-        Mode::Filter | Mode::Find => " Enter закончить ввод   Esc назад   Ctrl+u очистить",
-        Mode::Launch => " Enter запустить   Esc отменить   Ctrl+u очистить аргументы",
-        _ => " / поиск   Tab панель   1–4 раздел   Enter запуск   ? помощь   q выход",
+        Mode::Filter | Mode::Find => app.language.text(
+            " Enter закончить ввод   Esc назад   Ctrl+u очистить",
+            " Enter finish editing   Esc back   Ctrl+u clear",
+        ),
+        Mode::Launch => app.language.text(
+            " Enter запустить   Esc отменить   Ctrl+u очистить аргументы",
+            " Enter launch   Esc cancel   Ctrl+u clear arguments",
+        ),
+        _ => app.language.text(
+            " / поиск   Tab панель   1–4 раздел   Enter запуск   L EN/RU   ? помощь   q выход",
+            " / find   Tab pane   1–4 section   Enter launch   L EN/RU   ? help   q quit",
+        ),
     };
     frame.render_widget(
         Paragraph::new(vec![
@@ -348,14 +390,22 @@ fn popup(area: Rect, width: u16, height: u16) -> Rect {
 fn launch_dialog(frame: &mut Frame, app: &App) {
     let rect = popup(frame.area(), 82, 11);
     frame.render_widget(Clear, rect);
-    let border = block(" ЗАПУСК ПРИЛОЖЕНИЯ ".into(), true);
+    let border = block(
+        app.language
+            .text(" ЗАПУСК ПРИЛОЖЕНИЯ ", " LAUNCH APP ")
+            .into(),
+        true,
+    );
     let inner = border.inner(rect);
     frame.render_widget(border, rect);
     let name = app.current().map(|p| p.info.id.as_str()).unwrap_or("");
     let text = vec![
         Line::styled(format!(" $ {name}"), Style::default().fg(CYAN).bold()),
         Line::styled(
-            " Аргументы · редактируйте перед запуском",
+            app.language.text(
+                " Аргументы · редактируйте перед запуском",
+                " Arguments · edit before launching",
+            ),
             Style::default().fg(MUTED),
         ),
         Line::raw(""),
@@ -368,15 +418,24 @@ fn launch_dialog(frame: &mut Frame, app: &App) {
         ),
         Line::raw(""),
         Line::styled(
-            " Кавычки объединяют слова. Shell-выражения не исполняются.",
+            app.language.text(
+                " Кавычки объединяют слова. Shell-выражения не исполняются.",
+                " Quotes group words. Shell expressions are not executed.",
+            ),
             Style::default().fg(MUTED),
         ),
         Line::styled(
-            " После выхода вы вернётесь в Atlas.",
+            app.language.text(
+                " После выхода вы вернётесь в Atlas.",
+                " You will return to Atlas after the program exits.",
+            ),
             Style::default().fg(MUTED),
         ),
         Line::styled(
-            " Enter — запустить                 Esc — отменить",
+            app.language.text(
+                " Enter — запустить                 Esc — отменить",
+                " Enter — launch                   Esc — cancel",
+            ),
             Style::default().fg(GREEN),
         ),
     ];
@@ -386,15 +445,20 @@ fn launch_dialog(frame: &mut Frame, app: &App) {
     frame.set_cursor_position((x.min(inner.right().saturating_sub(1)), inner.y + 3));
 }
 
-fn help_dialog(frame: &mut Frame) {
-    let rect = popup(frame.area(), 80, 24);
+fn help_dialog(frame: &mut Frame, app: &App) {
+    let rect = popup(frame.area(), 80, 26);
     frame.render_widget(Clear, rect);
-    let text = "\n  НАВИГАЦИЯ\n  j/k или ↑/↓     выбор приложения / прокрутка текста\n  Tab · h/l        переключение панели\n  /                поиск приложений и действий\n  1 · 2 · 3 · 4    обзор / хоткеи / CLI / документация\n  [ / ]            предыдущий / следующий раздел\n  PgUp/PgDn        прокрутка на страницу\n  gg / G           начало / конец\n  Колесо и клик    работают в обеих панелях\n\n  СПРАВКА И ЗАПУСК\n  Ctrl+f           поиск внутри текущего текста\n  n / N            следующее / предыдущее совпадение\n  r                перечитать локальную справку\n  Enter или e      запуск с редактируемыми аргументами\n  Esc              закрыть ввод, затем очистить поиск\n  q / Ctrl+c       выход из Atlas\n\n  Enter / Esc / ?  закрыть эту подсказку";
+    let text = app.language.text("\n  НАВИГАЦИЯ\n  j/k или ↑/↓     выбор приложения / прокрутка текста\n  Tab · h/l        переключение панели\n  /                поиск приложений и действий\n  1 · 2 · 3 · 4    обзор / хоткеи / CLI / документация\n  [ / ]            предыдущий / следующий раздел\n  PgUp/PgDn        прокрутка на страницу\n  gg / G           начало / конец\n  Колесо и клик    работают в обеих панелях\n\n  СПРАВКА И ЗАПУСК\n  Ctrl+f           поиск внутри текущего текста\n  n / N            следующее / предыдущее совпадение\n  r                перечитать локальную справку\n  L                сменить язык: EN / RU\n  Enter или e      запуск с редактируемыми аргументами\n  Esc              закрыть ввод, затем очистить поиск\n  q / Ctrl+c       выход из Atlas\n\n  Enter / Esc / ?  закрыть эту подсказку", "\n  NAVIGATION\n  j/k or ↑/↓      select an app / scroll text\n  Tab · h/l        switch pane\n  /                search apps and actions\n  1 · 2 · 3 · 4    overview / shortcuts / CLI / documentation\n  [ / ]            previous / next section\n  PgUp/PgDn        scroll a page\n  gg / G           top / bottom\n  Wheel and click  work in both panes\n\n  HELP AND LAUNCH\n  Ctrl+f           find in the current text\n  n / N            next / previous match\n  r                reload local help\n  L                switch language: EN / RU\n  Enter or e       launch with editable arguments\n  Esc              close input, then clear search\n  q / Ctrl+c       quit Atlas\n\n  Enter / Esc / ?  close this help");
     frame.render_widget(
         Paragraph::new(text)
             .style(Style::default().fg(TEXT))
             .wrap(Wrap { trim: false })
-            .block(block(" УПРАВЛЕНИЕ TUI ATLAS ".into(), true)),
+            .block(block(
+                app.language
+                    .text(" УПРАВЛЕНИЕ TUI ATLAS ", " TUI ATLAS CONTROLS ")
+                    .into(),
+                true,
+            )),
         rect,
     );
 }
@@ -474,6 +538,58 @@ mod tests {
     use super::*;
     use crate::catalog;
     use ratatui::{Terminal, backend::TestBackend};
+
+    #[test]
+    fn both_languages_render_owned_labels_at_all_sizes_and_help_lists_switch() {
+        use crate::language::Language;
+        for language in [Language::En, Language::Ru] {
+            let mut app = App::new_in(catalog::load_in(language).unwrap(), language);
+            for (width, height) in [(130, 40), (54, 18), (25, 8)] {
+                let mut terminal = Terminal::new(TestBackend::new(width, height)).unwrap();
+                for focus in [Focus::Catalogue, Focus::Content] {
+                    app.focus = focus;
+                    terminal.draw(|frame| draw(frame, &mut app)).unwrap();
+                    let screen: String = terminal
+                        .backend()
+                        .buffer()
+                        .content
+                        .iter()
+                        .map(|cell| cell.symbol())
+                        .collect();
+                    assert!(screen.contains("TUI ATLAS"));
+                    if width < 36 {
+                        assert!(screen.contains(language.text("Увеличьте", "Resize")));
+                    } else {
+                        assert!(screen.contains(language.text("ПОИСК ПРИЛОЖЕНИЯ", "FIND AN APP")));
+                    }
+                }
+                if width > 100 {
+                    app.mode = Mode::Help;
+                    terminal.draw(|frame| draw(frame, &mut app)).unwrap();
+                    let screen: String = terminal
+                        .backend()
+                        .buffer()
+                        .content
+                        .iter()
+                        .map(|cell| cell.symbol())
+                        .collect();
+                    assert!(screen.contains("EN / RU"));
+                    assert!(screen.contains(language.text("УПРАВЛЕНИЕ", "CONTROLS")));
+                    app.mode = Mode::Launch;
+                    terminal.draw(|frame| draw(frame, &mut app)).unwrap();
+                    let screen: String = terminal
+                        .backend()
+                        .buffer()
+                        .content
+                        .iter()
+                        .map(|cell| cell.symbol())
+                        .collect();
+                    assert!(screen.contains(language.text("ЗАПУСК ПРИЛОЖЕНИЯ", "LAUNCH APP")));
+                    app.mode = Mode::Normal;
+                }
+            }
+        }
+    }
 
     #[test]
     fn unicode_search_highlights_valid_original_boundaries() {
