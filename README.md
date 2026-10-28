@@ -151,6 +151,8 @@ CI checks formatting, Clippy, Rust tests, packaging, and the extracted executabl
 
 Pushing a `v*` tag runs the same checks, verifies that the tag matches the Cargo version, and publishes two archives plus `SHA256SUMS`. Release notes live in `docs/releases/`; see the [changelog](CHANGELOG.md). Each archive contains only an explicit list of public files.
 
+If publishing fails, the draft is kept for inspection. Review the failed run and its draft, delete only that failed draft while keeping the Git tag, then rerun the workflow; published releases are never overwritten automatically.
+
 [Open an issue](https://github.com/IgorKramar/tui-atlas/issues) with your app version, terminal size, and reproduction steps. For a pull request, describe the behavior change, update both languages, and run the checks above. Never include credentials or private configuration.
 
 ## License
