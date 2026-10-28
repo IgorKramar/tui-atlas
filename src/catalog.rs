@@ -279,6 +279,22 @@ mod tests {
     }
 
     #[test]
+    fn every_curated_catalog_string_has_an_english_translation() {
+        for program in load_in(Language::Ru).unwrap() {
+            let mut info = program.info;
+            let mut guide = program.guide;
+            display_fields(&mut info, &mut guide, |field| {
+                let russian = |c: char| ('А'..='я').contains(&c) || matches!(c, 'Ё' | 'ё');
+                if field.chars().any(russian) {
+                    let translated = english(field);
+                    assert!(!translated.trim().is_empty());
+                    assert!(!translated.chars().any(russian), "Missing English: {field}");
+                }
+            });
+        }
+    }
+
+    #[test]
     fn catalogue_has_every_app_and_traced_guides() {
         let catalogue = load().unwrap();
         assert_eq!(catalogue.len(), 37);
