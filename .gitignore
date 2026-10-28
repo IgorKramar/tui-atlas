@@ -5,3 +5,7 @@
 /docs/verification.md
 /docs/solutions/
 /CLAUDE.md
+
+# Результаты проверок и релизной упаковки
+/dist/
+__pycache__/

@@ -2,8 +2,14 @@
 name = "tui-atlas"
 version = "0.2.0"
 edition = "2024"
-authors = ["Igor Kramar"]
-description = "Каталог терминальных приложений с читшитами и запуском"
+authors = ["Igor Kramar <i@ikramar.ru>"]
+description = "A terminal app catalog, cheatsheets and launcher"
+license = "MIT"
+repository = "https://github.com/IgorKramar/tui-atlas"
+homepage = "https://github.com/IgorKramar/tui-atlas"
+readme = "README.md"
+keywords = ["tui", "terminal", "cheatsheet", "launcher", "ratatui"]
+categories = ["command-line-utilities"]
 
 [dependencies]
 ratatui = { version = "0.30.2", default-features = false, features = ["crossterm_0_29", "layout-cache"] }
