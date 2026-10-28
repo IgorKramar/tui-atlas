@@ -1,0 +1,3044 @@
+[
+  {
+    "id": "alsamixer",
+    "description": "Микшер ALSA: уровни громкости, отключение звука и выбор входов записи.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "alsamixer"
+    ],
+    "doc_files": [
+      {
+        "path": "/usr/share/doc/alsa-utils/README.md",
+        "label": "README установленного alsa-utils"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "← / →",
+        "action": "Выбрать регулятор",
+        "context": "Стандартный микшер"
+      },
+      {
+        "key": "↑ / ↓",
+        "action": "Изменить громкость обоих каналов",
+        "context": "Стандартный микшер"
+      },
+      {
+        "key": "m",
+        "action": "Включить или снять mute",
+        "context": "Выбранный регулятор"
+      },
+      {
+        "key": "Space",
+        "action": "Включить запись выбранного входа",
+        "context": "Вход с поддержкой capture"
+      },
+      {
+        "key": "b / =",
+        "action": "Выровнять левый и правый каналы",
+        "context": "Стереорегулятор"
+      },
+      {
+        "key": "PageUp / PageDown",
+        "action": "Изменить уровень на 5",
+        "context": "Выбранный регулятор"
+      },
+      {
+        "key": "End",
+        "action": "Установить нулевую громкость",
+        "context": "Выбранный регулятор"
+      },
+      {
+        "key": "0…9",
+        "action": "Установить уровень 0…90%",
+        "context": "Выбранный регулятор"
+      },
+      {
+        "key": "q / z",
+        "action": "Повысить / понизить левый канал",
+        "context": "Стереорегулятор"
+      },
+      {
+        "key": "e / c",
+        "action": "Повысить / понизить правый канал",
+        "context": "Стереорегулятор"
+      },
+      {
+        "key": "w / x",
+        "action": "Повысить / понизить оба канала",
+        "context": "Микшер"
+      },
+      {
+        "key": "F1 / ?",
+        "action": "Открыть справку",
+        "context": "Основной экран"
+      },
+      {
+        "key": "F2 / /",
+        "action": "Показать системную информацию",
+        "context": "Основной экран"
+      },
+      {
+        "key": "F3",
+        "action": "Показать воспроизведение",
+        "context": "Основной экран"
+      },
+      {
+        "key": "F4",
+        "action": "Показать входы записи",
+        "context": "Основной экран"
+      },
+      {
+        "key": "F5",
+        "action": "Показать все регуляторы",
+        "context": "Основной экран"
+      },
+      {
+        "key": "Tab",
+        "action": "Сменить режим представления",
+        "context": "Основной экран"
+      },
+      {
+        "key": "F6 / s",
+        "action": "Выбрать звуковую карту",
+        "context": "Основной экран"
+      },
+      {
+        "key": "l",
+        "action": "Перерисовать экран",
+        "context": "Основной экран"
+      },
+      {
+        "key": "Esc / Alt+q",
+        "action": "Выйти",
+        "context": "На некоторых терминалах Esc дважды"
+      }
+    ],
+    "examples": [
+      {
+        "command": "alsamixer",
+        "description": "Открыть микшер карты по умолчанию"
+      },
+      {
+        "command": "alsamixer -c 0",
+        "description": "Выбрать карту с индексом 0"
+      },
+      {
+        "command": "alsamixer -V capture",
+        "description": "Сразу открыть регуляторы записи"
+      },
+      {
+        "command": "alsamixer -V all",
+        "description": "Показать входы и выходы"
+      },
+      {
+        "command": "alsamixer -D default",
+        "description": "Явно выбрать устройство default"
+      },
+      {
+        "command": "alsamixer -B",
+        "description": "Использовать чёрный фон"
+      }
+    ],
+    "notes": [
+      "Сочетания стандартные; локальный alsamixer.rc не проверялся.",
+      "Изменения регуляторов действуют сразу; alsamixer управляет ALSA, а не всеми программными потоками PipeWire.",
+      "Полный список аргументов и переназначений — в alsamixer(1)."
+    ],
+    "sources": [
+      {
+        "title": "Локальная alsamixer(1), alsa-utils 1.2.16",
+        "location": "/usr/share/man/man1/alsamixer.1.gz"
+      }
+    ]
+  },
+  {
+    "id": "hyprmoncfg",
+    "description": "Редактор расположения мониторов Hyprland и менеджер профилей экранов.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [
+      {
+        "path": "/usr/share/doc/hyprmoncfg/README.md",
+        "label": "README установленного hyprmoncfg"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "1 / 2 / 3",
+        "action": "Переключить вкладку",
+        "context": "Стандартные клавиши версии 1.18.3"
+      },
+      {
+        "key": "a",
+        "action": "Применить черновик или профиль",
+        "context": "Основной экран; профиль — ручной режим"
+      },
+      {
+        "key": "s",
+        "action": "Сохранить черновик как профиль",
+        "context": "Основной экран"
+      },
+      {
+        "key": "r",
+        "action": "Загрузить текущее состояние Hyprland",
+        "context": "Основной экран"
+      },
+      {
+        "key": "?",
+        "action": "Показать клавиши текущей вкладки",
+        "context": "Основной экран"
+      },
+      {
+        "key": "q",
+        "action": "Выйти",
+        "context": "Основной экран"
+      },
+      {
+        "key": "← / ↑ / → / ↓",
+        "action": "Сдвинуть монитор на 100 пикселей",
+        "context": "Холст"
+      },
+      {
+        "key": "Shift+стрелки",
+        "action": "Сдвинуть монитор на 10 пикселей",
+        "context": "Холст"
+      },
+      {
+        "key": "Ctrl+стрелки",
+        "action": "Сдвинуть монитор на 1 пиксель",
+        "context": "Холст"
+      },
+      {
+        "key": "Alt+стрелки",
+        "action": "Пристыковать к ближайшему монитору",
+        "context": "Холст"
+      },
+      {
+        "key": "0",
+        "action": "Переместить в координаты 0,0",
+        "context": "Холст"
+      },
+      {
+        "key": "[ / ]",
+        "action": "Выбрать предыдущий / следующий монитор",
+        "context": "Холст"
+      },
+      {
+        "key": "Tab / Shift+Tab",
+        "action": "Сменить область фокуса",
+        "context": "Холст, Display и Color"
+      },
+      {
+        "key": "Enter",
+        "action": "Редактировать выбранное поле",
+        "context": "Display или Color"
+      },
+      {
+        "key": "↑ / ↓",
+        "action": "Выбрать профиль",
+        "context": "Список профилей"
+      },
+      {
+        "key": "l",
+        "action": "Загрузить профиль в редактор",
+        "context": "Профили; исходный код 1.18.3"
+      },
+      {
+        "key": "e",
+        "action": "Изменить exec-команду профиля",
+        "context": "Список профилей"
+      },
+      {
+        "key": "d",
+        "action": "Удалить выбранный профиль",
+        "context": "Список профилей"
+      },
+      {
+        "key": "PageUp / PageDown",
+        "action": "Прокрутить список на страницу",
+        "context": "Планировщик рабочих столов"
+      },
+      {
+        "key": "Home / End",
+        "action": "Перейти к первой / последней строке",
+        "context": "Планировщик рабочих столов"
+      },
+      {
+        "key": "← / →",
+        "action": "Изменить параметр или назначение",
+        "context": "Планировщик рабочих столов"
+      },
+      {
+        "key": "Enter",
+        "action": "Ввести точное количество",
+        "context": "Параметр числа рабочих столов или группы"
+      }
+    ],
+    "examples": [
+      {
+        "command": "hyprmoncfg",
+        "description": "Открыть редактор"
+      },
+      {
+        "command": "hyprmoncfg --help",
+        "description": "Прочитать список команд"
+      },
+      {
+        "command": "hyprmoncfg profiles",
+        "description": "Перечислить сохранённые профили"
+      },
+      {
+        "command": "hyprmoncfg monitors",
+        "description": "Показать подключённые мониторы"
+      },
+      {
+        "command": "hyprmoncfg status",
+        "description": "Показать активный профиль и демон"
+      },
+      {
+        "command": "hyprmoncfg doctor",
+        "description": "Проверить порядок подключения конфига"
+      },
+      {
+        "command": "hyprmoncfg apply desk",
+        "description": "Применить ранее сохранённый профиль desk"
+      }
+    ],
+    "notes": [
+      "Сочетания сверены с исходным кодом тега v1.18.3, соответствующего инвентаризации.",
+      "В README и версионном walkthrough есть расхождения о Enter в списке профилей; для загрузки в редактор приведён l из keybindings.go.",
+      "Применение и сохранение меняют настройки экранов; примеры приведены для ручного запуска пользователем."
+    ],
+    "sources": [
+      {
+        "title": "Локальная справка установленного бинарника",
+        "location": "/usr/bin/hyprmoncfg --help"
+      },
+      {
+        "title": "Клавиши версии 1.18.3",
+        "location": "https://github.com/crmne/hyprmoncfg/blob/v1.18.3/internal/tui/keybindings.go"
+      },
+      {
+        "title": "Руководство версии 1.18.3",
+        "location": "https://github.com/crmne/hyprmoncfg/blob/v1.18.3/docs/_guide/tui.md"
+      }
+    ]
+  },
+  {
+    "id": "cfdisk",
+    "description": "Интерактивный редактор таблицы разделов диска; доступен режим только чтения.",
+    "launch_args": [
+      "--read-only"
+    ],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "cfdisk"
+    ],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "↑ / ↓",
+        "action": "Выбрать раздел",
+        "context": "Список разделов"
+      },
+      {
+        "key": "← / →",
+        "action": "Выбрать пункт меню",
+        "context": "Основной экран"
+      },
+      {
+        "key": "Enter",
+        "action": "Выполнить пункт меню",
+        "context": "Основной экран"
+      },
+      {
+        "key": "h",
+        "action": "Показать справку",
+        "context": "Основной экран"
+      },
+      {
+        "key": "q",
+        "action": "Выйти без записи",
+        "context": "Основной экран"
+      },
+      {
+        "key": "x",
+        "action": "Переключить дополнительные сведения",
+        "context": "Выбранный раздел"
+      },
+      {
+        "key": "u",
+        "action": "Выгрузить таблицу в файл скрипта",
+        "context": "Таблица в памяти; записывает указанный файл"
+      },
+      {
+        "key": "n",
+        "action": "Создать раздел",
+        "context": "Свободное место; режим редактирования"
+      },
+      {
+        "key": "d",
+        "action": "Удалить раздел из черновика",
+        "context": "Выбранный раздел; режим редактирования"
+      },
+      {
+        "key": "r",
+        "action": "Изменить размер раздела",
+        "context": "Выбранный раздел; режим редактирования"
+      },
+      {
+        "key": "t",
+        "action": "Изменить тип раздела",
+        "context": "Выбранный раздел; режим редактирования"
+      },
+      {
+        "key": "b",
+        "action": "Переключить флаг загрузки",
+        "context": "Таблицы с поддержкой bootable"
+      },
+      {
+        "key": "s",
+        "action": "Отсортировать разделы по сектору начала",
+        "context": "Режим редактирования"
+      },
+      {
+        "key": "W",
+        "action": "Записать таблицу на диск",
+        "context": "Только заглавная W; требуется подтверждение yes"
+      },
+      {
+        "key": "Esc",
+        "action": "Вернуться в основное меню",
+        "context": "Подменю или запрос ввода"
+      }
+    ],
+    "examples": [
+      {
+        "command": "cfdisk --help",
+        "description": "Показать аргументы без открытия диска"
+      },
+      {
+        "command": "cfdisk --read-only /dev/sdX",
+        "description": "Просмотреть выбранный диск без записи; замените sdX"
+      },
+      {
+        "command": "cfdisk --read-only disk.img",
+        "description": "Просмотреть таблицу в существующем образе"
+      },
+      {
+        "command": "cfdisk --read-only --color=never disk.img",
+        "description": "Открыть образ без цветов"
+      },
+      {
+        "command": "cfdisk --read-only --sector-size 4096 disk.img",
+        "description": "Просмотреть образ с известным сектором 4096 байт"
+      }
+    ],
+    "notes": [
+      "Atlas предлагает --read-only по умолчанию; перед запуском укажите нужный диск или образ.",
+      "В режиме редактирования изменения остаются в памяти до W. Запись таблицы и уменьшение раздела могут уничтожить данные.",
+      "cfdisk меняет разделы, но не уменьшает содержащуюся в них файловую систему."
+    ],
+    "sources": [
+      {
+        "title": "Локальная cfdisk(8), util-linux 2.42.4",
+        "location": "/usr/share/man/man8/cfdisk.8.gz"
+      },
+      {
+        "title": "Аргументы установленного бинарника",
+        "location": "/usr/bin/cfdisk --help"
+      }
+    ]
+  },
+  {
+    "id": "fzf",
+    "description": "Нечёткий фильтр строк: выбор файлов, результатов поиска и элементов переданного списка.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "fzf"
+    ],
+    "doc_files": [
+      {
+        "path": "/usr/share/vim/vimfiles/doc/fzf.txt",
+        "label": "Документация установленной Vim-интеграции"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "Enter",
+        "action": "Подтвердить выбор",
+        "context": "Стандартный finder"
+      },
+      {
+        "key": "Esc / Ctrl+c / Ctrl+g",
+        "action": "Отменить выбор",
+        "context": "Стандартный finder"
+      },
+      {
+        "key": "↑ / Ctrl+k",
+        "action": "Переместиться вверх",
+        "context": "Список"
+      },
+      {
+        "key": "↓ / Ctrl+j",
+        "action": "Переместиться вниз",
+        "context": "Список"
+      },
+      {
+        "key": "Ctrl+p / Ctrl+n",
+        "action": "Предыдущее / следующее совпадение",
+        "context": "Список; особенно при --raw"
+      },
+      {
+        "key": "PageUp / PageDown",
+        "action": "Перейти на страницу",
+        "context": "Список"
+      },
+      {
+        "key": "Tab",
+        "action": "Переключить отметку и двигаться вниз",
+        "context": "Только --multi; стандартная раскладка"
+      },
+      {
+        "key": "Shift+Tab",
+        "action": "Переключить отметку и двигаться вверх",
+        "context": "Только --multi; стандартная раскладка"
+      },
+      {
+        "key": "← / Ctrl+b",
+        "action": "Сдвинуть курсор влево",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "→ / Ctrl+f",
+        "action": "Сдвинуть курсор вправо",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "Home / Ctrl+a",
+        "action": "Перейти в начало запроса",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "End / Ctrl+e",
+        "action": "Перейти в конец запроса",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "Alt+b / Alt+f",
+        "action": "Перейти на слово назад / вперёд",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "Backspace",
+        "action": "Удалить предыдущий символ",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "Delete",
+        "action": "Удалить следующий символ",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "Ctrl+d",
+        "action": "Удалить символ или выйти",
+        "context": "Пустой запрос — выход"
+      },
+      {
+        "key": "Ctrl+u",
+        "action": "Удалить до начала строки",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "Ctrl+w",
+        "action": "Удалить предыдущее слово",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "Ctrl+y",
+        "action": "Вставить последний удалённый текст",
+        "context": "Строка запроса"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Перерисовать экран",
+        "context": "Стандартный finder"
+      }
+    ],
+    "examples": [
+      {
+        "command": "fzf",
+        "description": "Искать файлы встроенным обходчиком"
+      },
+      {
+        "command": "fzf --multi",
+        "description": "Выбирать несколько элементов"
+      },
+      {
+        "command": "fzf --height 40% --layout reverse",
+        "description": "Открыть компактный список сверху вниз"
+      },
+      {
+        "command": "fzf --query README",
+        "description": "Начать поиск с заданным запросом"
+      },
+      {
+        "command": "fzf --exact --query README",
+        "description": "Искать точную подстроку"
+      },
+      {
+        "command": "printf 'alpha\\nbeta\\n' | fzf",
+        "description": "Выбрать строку из небольшого списка"
+      },
+      {
+        "command": "printf 'alpha\\nbeta\\n' | fzf --filter beta",
+        "description": "Отфильтровать строки без интерфейса"
+      }
+    ],
+    "notes": [
+      "Сочетания стандартные; --bind и FZF_DEFAULT_OPTS могут их менять.",
+      "Tab и Shift+Tab перемещают физически вниз/вверх; раскладка --layout влияет на порядок обхода.",
+      "--preview, --bind execute/reload и FZF_DEFAULT_COMMAND могут исполнять shell-команды; проверяйте используемые шаблоны."
+    ],
+    "sources": [
+      {
+        "title": "Локальная fzf(1), 0.74.5",
+        "location": "/usr/share/man/man1/fzf.1.gz"
+      },
+      {
+        "title": "Аргументы установленного бинарника",
+        "location": "/usr/bin/fzf --help"
+      }
+    ]
+  },
+  {
+    "id": "tv",
+    "description": "Television: нечёткий поиск по каналам с предпросмотром и настраиваемыми действиями.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "tv"
+    ],
+    "doc_files": [
+      {
+        "path": "/usr/share/doc/television/README.md",
+        "label": "README установленного Television"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "↑ / Ctrl+p / Ctrl+k",
+        "action": "Выбрать предыдущую строку",
+        "context": "Стандартная раскладка 0.15.9"
+      },
+      {
+        "key": "↓ / Ctrl+n / Ctrl+j",
+        "action": "Выбрать следующую строку",
+        "context": "Стандартная раскладка 0.15.9"
+      },
+      {
+        "key": "Enter",
+        "action": "Подтвердить выбор",
+        "context": "Канал может переопределять действие"
+      },
+      {
+        "key": "Tab / Shift+Tab",
+        "action": "Отметить строку и перейти дальше / назад",
+        "context": "Список"
+      },
+      {
+        "key": "Esc / Ctrl+c",
+        "action": "Выйти",
+        "context": "Основной экран"
+      },
+      {
+        "key": "PageUp / PageDown",
+        "action": "Прокрутить предпросмотр на полстраницы",
+        "context": "Панель предпросмотра"
+      },
+      {
+        "key": "Ctrl+y",
+        "action": "Скопировать выбранную строку",
+        "context": "При доступном буфере обмена"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Обновить источник",
+        "context": "Основной экран"
+      },
+      {
+        "key": "Ctrl+s",
+        "action": "Сменить команду источника",
+        "context": "Канал с несколькими источниками"
+      },
+      {
+        "key": "Ctrl+f",
+        "action": "Сменить команду предпросмотра",
+        "context": "Канал с несколькими preview"
+      },
+      {
+        "key": "Ctrl+t",
+        "action": "Переключить выбор канала",
+        "context": "Remote control"
+      },
+      {
+        "key": "Ctrl+h",
+        "action": "Показать или скрыть справку",
+        "context": "Основной экран"
+      },
+      {
+        "key": "Ctrl+o",
+        "action": "Показать или скрыть предпросмотр",
+        "context": "Основной экран"
+      },
+      {
+        "key": "F12",
+        "action": "Переключить строку состояния",
+        "context": "Основной экран"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Сменить ориентацию панелей",
+        "context": "Основной экран"
+      },
+      {
+        "key": "Ctrl+x",
+        "action": "Показать доступные действия",
+        "context": "Основной экран"
+      },
+      {
+        "key": "Ctrl+↑ / Ctrl+↓",
+        "action": "Предыдущий / следующий запрос",
+        "context": "История запросов Television"
+      },
+      {
+        "key": "Ctrl+a / Ctrl+e",
+        "action": "В начало / конец ввода",
+        "context": "Строка поиска"
+      },
+      {
+        "key": "Ctrl+w",
+        "action": "Удалить предыдущее слово",
+        "context": "Строка поиска"
+      },
+      {
+        "key": "Ctrl+u",
+        "action": "Очистить ввод",
+        "context": "Строка поиска"
+      }
+    ],
+    "examples": [
+      {
+        "command": "tv",
+        "description": "Искать файлы в канале по умолчанию"
+      },
+      {
+        "command": "tv text",
+        "description": "Искать содержимое файлов; если канал установлен"
+      },
+      {
+        "command": "tv git-repos",
+        "description": "Искать репозитории; если канал установлен"
+      },
+      {
+        "command": "tv list-channels",
+        "description": "Перечислить локально доступные каналы"
+      },
+      {
+        "command": "tv --exact",
+        "description": "Использовать поиск подстроки"
+      },
+      {
+        "command": "tv --source-command \"find . -name '*.rs'\"",
+        "description": "Создать временный источник поиска Rust-файлов"
+      }
+    ],
+    "notes": [
+      "Стандартные клавиши взяты из тега 0.15.9; конфиг и конкретный канал могут переопределять их.",
+      "Команды источников, предпросмотра и действий исполняются shell; запускайте знакомые каналы.",
+      "Наличие каналов text и git-repos зависит от локального cable; update-channels обращается в сеть и не требуется для просмотра карточки."
+    ],
+    "sources": [
+      {
+        "title": "Клавиши Television 0.15.9",
+        "location": "https://github.com/alexpasmantier/television/blob/0.15.9/docs/user-guide/03-keybindings.md"
+      },
+      {
+        "title": "Локальная tv(1), 0.15.9",
+        "location": "/usr/share/man/man1/tv.1.gz"
+      },
+      {
+        "title": "Локальный README",
+        "location": "/usr/share/doc/television/README.md"
+      }
+    ]
+  },
+  {
+    "id": "atuin",
+    "description": "Поиск по сохранённой истории shell с фильтрами каталога, сеанса, машины и кода завершения.",
+    "launch_args": [
+      "search",
+      "-i"
+    ],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [
+      {
+        "path": "/usr/share/doc/atuin/README.md",
+        "label": "README установленного Atuin"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "Ctrl+r",
+        "action": "Открыть поиск истории",
+        "context": "Shell после установки интеграции"
+      },
+      {
+        "key": "Enter",
+        "action": "Выбрать и выполнить команду",
+        "context": "Поиск через shell; enter_accept=true по умолчанию"
+      },
+      {
+        "key": "Tab",
+        "action": "Вернуть команду для редактирования",
+        "context": "Поиск через shell; без выполнения"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Сменить область фильтра",
+        "context": "Внутри поиска Atuin"
+      },
+      {
+        "key": "Ctrl+s",
+        "action": "Сменить режим поиска",
+        "context": "Внутри поиска Atuin"
+      },
+      {
+        "key": "Alt+1…9",
+        "action": "Быстро выбрать пронумерованную строку",
+        "context": "Стандартные сочетания; терминал может перехватывать"
+      },
+      {
+        "key": "Esc / Ctrl+c / Ctrl+g",
+        "action": "Закрыть поиск",
+        "context": "Режим Emacs; в Vim Esc меняет режим"
+      },
+      {
+        "key": "↓ / Ctrl+n / Ctrl+j",
+        "action": "Выбрать следующую запись",
+        "context": "Поиск, Emacs"
+      },
+      {
+        "key": "↑ / Ctrl+p / Ctrl+k",
+        "action": "Выбрать предыдущую запись",
+        "context": "Поиск, Emacs"
+      },
+      {
+        "key": "Ctrl+o",
+        "action": "Открыть инспектор команды",
+        "context": "Поиск"
+      },
+      {
+        "key": "PageUp / PageDown",
+        "action": "Прокрутить результаты на страницу",
+        "context": "Поиск"
+      },
+      {
+        "key": "Ctrl+a / Home",
+        "action": "Перейти в начало ввода",
+        "context": "Поиск, Emacs; Ctrl+a также prefix"
+      },
+      {
+        "key": "Ctrl+e / End",
+        "action": "Перейти в конец ввода",
+        "context": "Поиск, Emacs"
+      },
+      {
+        "key": "Alt+b / Ctrl+←",
+        "action": "Назад на слово",
+        "context": "Поиск, Emacs"
+      },
+      {
+        "key": "Alt+f / Ctrl+→",
+        "action": "Вперёд на слово",
+        "context": "Поиск, Emacs"
+      },
+      {
+        "key": "Ctrl+w",
+        "action": "Удалить предыдущее слово",
+        "context": "Поиск, Emacs"
+      },
+      {
+        "key": "Ctrl+u",
+        "action": "Очистить текущую строку",
+        "context": "Поиск, Emacs"
+      },
+      {
+        "key": "Ctrl+y",
+        "action": "Скопировать выбранную команду",
+        "context": "Поиск; при доступном буфере обмена"
+      },
+      {
+        "key": "j / k",
+        "action": "Выбрать следующую / предыдущую запись",
+        "context": "Только Vim Normal"
+      },
+      {
+        "key": "i",
+        "action": "Перейти к вводу",
+        "context": "Только Vim Normal"
+      },
+      {
+        "key": "Esc",
+        "action": "Вернуться в Normal",
+        "context": "Только Vim Insert"
+      },
+      {
+        "key": "Ctrl+a, d",
+        "action": "Удалить выбранную запись истории",
+        "context": "Последовательность prefix; действие необратимо"
+      }
+    ],
+    "examples": [
+      {
+        "command": "atuin search -i",
+        "description": "Открыть интерактивный поиск"
+      },
+      {
+        "command": "atuin search -i --filter-mode directory",
+        "description": "Ограничить поиск текущим каталогом"
+      },
+      {
+        "command": "atuin search -i --search-mode fuzzy",
+        "description": "Использовать нечёткое сопоставление"
+      },
+      {
+        "command": "atuin search --exit 0 make",
+        "description": "Найти успешные команды make"
+      },
+      {
+        "command": "atuin search --after \"yesterday 3pm\" make",
+        "description": "Найти записи после указанного времени"
+      },
+      {
+        "command": "atuin search --limit 20 --cmd-only cargo",
+        "description": "Вывести максимум 20 команд без метаданных"
+      }
+    ],
+    "notes": [
+      "История shell при подготовке карточки не читалась; поиск и интеграция не запускались.",
+      "Клавиши сверены с документацией тега v18.24.1; пользовательские keymap, enter_accept и prefix не проверялись.",
+      "Enter может немедленно выполнить старую команду через shell-интеграцию; Tab возвращает её для редактирования.",
+      "Полная локальная справка аргументов — atuin --help; подробности поиска — atuin search --help."
+    ],
+    "sources": [
+      {
+        "title": "Клавиши Atuin v18.24.1",
+        "location": "https://github.com/atuinsh/atuin/blob/v18.24.1/docs/docs/configuration/key-binding.md"
+      },
+      {
+        "title": "Справка поиска установленного бинарника",
+        "location": "/usr/bin/atuin search --help"
+      },
+      {
+        "title": "Локальный README",
+        "location": "/usr/share/doc/atuin/README.md"
+      }
+    ]
+  },
+  {
+    "id": "less",
+    "description": "Постраничный просмотр больших текстов с поиском, метками и наблюдением за растущими файлами.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "less",
+      "lesskey"
+    ],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "q",
+        "action": "Выйти",
+        "context": "Просмотр"
+      },
+      {
+        "key": "h",
+        "action": "Открыть встроенную справку",
+        "context": "Просмотр"
+      },
+      {
+        "key": "j / Enter",
+        "action": "На строку вниз",
+        "context": "Просмотр"
+      },
+      {
+        "key": "k",
+        "action": "На строку вверх",
+        "context": "Просмотр"
+      },
+      {
+        "key": "Space / Ctrl+f",
+        "action": "На экран вперёд",
+        "context": "Просмотр"
+      },
+      {
+        "key": "b / Ctrl+b",
+        "action": "На экран назад",
+        "context": "Просмотр"
+      },
+      {
+        "key": "d / Ctrl+d",
+        "action": "На полэкрана вниз",
+        "context": "Просмотр"
+      },
+      {
+        "key": "u / Ctrl+u",
+        "action": "На полэкрана вверх",
+        "context": "Просмотр"
+      },
+      {
+        "key": "g / Home",
+        "action": "В начало файла",
+        "context": "Просмотр"
+      },
+      {
+        "key": "G / End",
+        "action": "В конец файла",
+        "context": "Просмотр; на pipe может ждать EOF"
+      },
+      {
+        "key": "50%",
+        "action": "Перейти к середине файла",
+        "context": "Числовой префикс, затем %"
+      },
+      {
+        "key": "/шаблон",
+        "action": "Искать вперёд",
+        "context": "Регулярное выражение; завершить Enter"
+      },
+      {
+        "key": "?шаблон",
+        "action": "Искать назад",
+        "context": "Регулярное выражение; завершить Enter"
+      },
+      {
+        "key": "n / N",
+        "action": "Следующее / предыдущее совпадение",
+        "context": "После поиска"
+      },
+      {
+        "key": "Esc+u",
+        "action": "Снять или вернуть подсветку поиска",
+        "context": "Просмотр"
+      },
+      {
+        "key": "F",
+        "action": "Следить за добавлением строк",
+        "context": "Растущий файл"
+      },
+      {
+        "key": "Ctrl+c",
+        "action": "Прекратить ожидание новых строк",
+        "context": "Режим F"
+      },
+      {
+        "key": "← / →",
+        "action": "Горизонтальная прокрутка",
+        "context": "Просмотр длинных строк"
+      },
+      {
+        "key": "ma",
+        "action": "Установить метку a",
+        "context": "Просмотр"
+      },
+      {
+        "key": "'a",
+        "action": "Вернуться к метке a",
+        "context": "После ma"
+      },
+      {
+        "key": ":n / :p",
+        "action": "Следующий / предыдущий файл",
+        "context": "Несколько входных файлов"
+      },
+      {
+        "key": "=",
+        "action": "Показать сведения о позиции",
+        "context": "Просмотр"
+      },
+      {
+        "key": "R",
+        "action": "Перечитать файл и перерисовать",
+        "context": "Просмотр"
+      }
+    ],
+    "examples": [
+      {
+        "command": "less README.md",
+        "description": "Открыть текст"
+      },
+      {
+        "command": "less -N README.md",
+        "description": "Показать номера строк"
+      },
+      {
+        "command": "less -S wide.tsv",
+        "description": "Прокручивать длинные строки горизонтально"
+      },
+      {
+        "command": "less +100 README.md",
+        "description": "Начать со строки 100"
+      },
+      {
+        "command": "less -p 'ERROR' app.log",
+        "description": "Начать с первого совпадения ERROR"
+      },
+      {
+        "command": "less +F app.log",
+        "description": "Следить за дописыванием файла"
+      },
+      {
+        "command": "less -R colored.log",
+        "description": "Отображать разрешённые ANSI-последовательности цвета"
+      }
+    ],
+    "notes": [
+      "Без имени файла less ждёт стандартный ввод; для запуска из Atlas укажите файл.",
+      "Сочетания стандартные; lesskey и переменная LESS могут их менять.",
+      "! и v могут запускать shell или редактор; безопасный режим LESSSECURE ограничивает такие действия."
+    ],
+    "sources": [
+      {
+        "title": "Локальная less(1), 710",
+        "location": "/usr/share/man/man1/less.1.gz"
+      },
+      {
+        "title": "Формат переназначения клавиш",
+        "location": "/usr/share/man/man5/lesskey.5.gz"
+      }
+    ]
+  },
+  {
+    "id": "more",
+    "description": "Простой постраничный просмотр текста и последовательности файлов.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "more"
+    ],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "h / ?",
+        "action": "Показать справку",
+        "context": "Просмотр"
+      },
+      {
+        "key": "Space",
+        "action": "Показать следующий экран",
+        "context": "Просмотр"
+      },
+      {
+        "key": "Enter",
+        "action": "Показать следующую строку",
+        "context": "Просмотр"
+      },
+      {
+        "key": "z",
+        "action": "Следующий экран; префикс меняет размер",
+        "context": "Просмотр"
+      },
+      {
+        "key": "d / Ctrl+d",
+        "action": "Прокрутить вниз",
+        "context": "По умолчанию 11 строк"
+      },
+      {
+        "key": "q / Q",
+        "action": "Выйти",
+        "context": "Просмотр"
+      },
+      {
+        "key": "s",
+        "action": "Пропустить строку",
+        "context": "Числовой префикс задаёт количество"
+      },
+      {
+        "key": "f",
+        "action": "Пропустить экран",
+        "context": "Числовой префикс задаёт количество"
+      },
+      {
+        "key": "b / Ctrl+b",
+        "action": "Вернуться на экран назад",
+        "context": "Только файл; недоступно для pipe"
+      },
+      {
+        "key": "/шаблон",
+        "action": "Искать регулярное выражение",
+        "context": "Завершить Enter"
+      },
+      {
+        "key": "n",
+        "action": "Повторить последний поиск",
+        "context": "После поиска"
+      },
+      {
+        "key": "'",
+        "action": "Вернуться к началу последнего поиска",
+        "context": "Просмотр"
+      },
+      {
+        "key": "=",
+        "action": "Показать номер строки",
+        "context": "Просмотр"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Перерисовать экран",
+        "context": "Просмотр"
+      },
+      {
+        "key": ":n",
+        "action": "Перейти к следующему файлу",
+        "context": "Несколько файлов"
+      },
+      {
+        "key": ":p",
+        "action": "Перейти к предыдущему файлу",
+        "context": "Несколько файлов"
+      },
+      {
+        "key": ":f",
+        "action": "Показать имя файла и строку",
+        "context": "Просмотр"
+      },
+      {
+        "key": ".",
+        "action": "Повторить предыдущую команду",
+        "context": "Просмотр"
+      },
+      {
+        "key": "v",
+        "action": "Открыть редактор на текущей строке",
+        "context": "Кроме MORESECURE/PAGERSECURE"
+      },
+      {
+        "key": "!команда",
+        "action": "Запустить команду shell",
+        "context": "Кроме MORESECURE/PAGERSECURE"
+      }
+    ],
+    "examples": [
+      {
+        "command": "more README.md",
+        "description": "Открыть текст постранично"
+      },
+      {
+        "command": "more -d README.md",
+        "description": "Показывать понятные подсказки вместо звонка"
+      },
+      {
+        "command": "more -s README.md",
+        "description": "Сжимать повторяющиеся пустые строки"
+      },
+      {
+        "command": "more +100 README.md",
+        "description": "Начать со строки 100"
+      },
+      {
+        "command": "more +/ERROR app.log",
+        "description": "Начать с первого совпадения"
+      },
+      {
+        "command": "more --lines 20 README.md",
+        "description": "Показывать по 20 строк"
+      },
+      {
+        "command": "more first.txt second.txt",
+        "description": "Открыть два файла последовательно"
+      }
+    ],
+    "notes": [
+      "Для запуска из Atlas укажите файл; без файла more читает стандартный ввод.",
+      "Возврат назад работает с файлом, но не с потоком pipe.",
+      "MORESECURE или PAGERSECURE запрещают shell и внешний редактор."
+    ],
+    "sources": [
+      {
+        "title": "Локальная more(1), util-linux 2.42.4",
+        "location": "/usr/share/man/man1/more.1.gz"
+      }
+    ]
+  },
+  {
+    "id": "codex",
+    "description": "Терминальный агент разработки: изучение проекта, изменения кода и проверка результата.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "@",
+        "action": "Найти файл и вставить его путь",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "↑ / ↓",
+        "action": "Восстановить черновик из истории",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Искать по истории запросов",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "Enter",
+        "action": "Выбрать найденный запрос",
+        "context": "Поиск истории"
+      },
+      {
+        "key": "Esc",
+        "action": "Отменить поиск",
+        "context": "Поиск истории"
+      },
+      {
+        "key": "Ctrl+o",
+        "action": "Скопировать последний завершённый ответ",
+        "context": "Основной интерфейс; текущая официальная справка"
+      },
+      {
+        "key": "!",
+        "action": "Начать локальную shell-команду",
+        "context": "Начало строки; действуют sandbox и approval"
+      },
+      {
+        "key": "Tab",
+        "action": "Поставить сообщение в очередь",
+        "context": "Во время работы агента"
+      },
+      {
+        "key": "Enter",
+        "action": "Передать уточнение в текущую работу",
+        "context": "Во время работы агента"
+      },
+      {
+        "key": "Esc, Esc",
+        "action": "Изменить прошлый запрос и создать ответвление",
+        "context": "Пустое поле запроса"
+      },
+      {
+        "key": "Ctrl+c",
+        "action": "Закрыть сеанс",
+        "context": "Основной интерфейс; текущая официальная справка"
+      },
+      {
+        "key": "Ctrl+g",
+        "action": "Открыть внешний редактор запроса",
+        "context": "Редактор VISUAL или EDITOR"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Очистить видимую область",
+        "context": "Разговор сохраняется"
+      },
+      {
+        "key": "/",
+        "action": "Открыть список slash-команд",
+        "context": "Поле запроса"
+      }
+    ],
+    "examples": [
+      {
+        "command": "codex",
+        "description": "Начать интерактивный сеанс в текущем каталоге"
+      },
+      {
+        "command": "codex -C /path/to/project",
+        "description": "Начать сеанс в выбранном проекте"
+      },
+      {
+        "command": "codex --sandbox read-only",
+        "description": "Ограничить shell-команды режимом чтения"
+      },
+      {
+        "command": "codex --no-alt-screen",
+        "description": "Сохранить вывод в обычном scrollback терминала"
+      },
+      {
+        "command": "codex --worktree",
+        "description": "Начать работу в отдельном worktree"
+      },
+      {
+        "command": "codex completion bash",
+        "description": "Вывести скрипт автодополнения без установки"
+      },
+      {
+        "command": "codex --help",
+        "description": "Прочитать справку установленной версии"
+      }
+    ],
+    "notes": [
+      "Бинарник 0.164.0 проверялся только с --help; сеанс и авторизация не запускались.",
+      "Клавиши приведены по текущей официальной документации; локальные tui.keymap и режим Vim не проверялись. /keymap показывает действующие назначения.",
+      "Полная локальная справка — --help; man и отдельный локальный справочник этой установки не обнаружены.",
+      "Запуск сеанса может обращаться к провайдеру и выполнять действия в проекте согласно настройкам доступа."
+    ],
+    "sources": [
+      {
+        "title": "Локальная справка бинарника 0.164.0",
+        "location": "~/.local/share/mise/installs/codex/latest/bin/codex --help"
+      },
+      {
+        "title": "Официальные интерактивные клавиши",
+        "location": "https://learn.chatgpt.com/docs/developer-commands#interactive-shortcuts"
+      },
+      {
+        "title": "Редактор запросов",
+        "location": "https://learn.chatgpt.com/docs/cli-customization"
+      }
+    ]
+  },
+  {
+    "id": "claude",
+    "description": "Claude Code: интерактивный помощник для исследования проекта, правок и запуска проверок.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "Ctrl+c",
+        "action": "Прервать работу или очистить ввод",
+        "context": "Повторное нажатие при простое завершает сеанс"
+      },
+      {
+        "key": "Ctrl+d",
+        "action": "Выйти после повторного нажатия",
+        "context": "Пустой ввод; с текстом удаляет символ"
+      },
+      {
+        "key": "Ctrl+g",
+        "action": "Открыть запрос во внешнем редакторе",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Перерисовать терминал",
+        "context": "Разговор и ввод сохраняются"
+      },
+      {
+        "key": "Ctrl+o",
+        "action": "Переключить просмотр транскрипта",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Искать в истории запросов",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "Ctrl+b",
+        "action": "Отправить задачу в фон",
+        "context": "В tmux нажать дважды"
+      },
+      {
+        "key": "Ctrl+t",
+        "action": "Показать список задач",
+        "context": "Строка состояния"
+      },
+      {
+        "key": "Ctrl+s",
+        "action": "Отложить или восстановить черновик",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "Ctrl+z",
+        "action": "Приостановить процесс",
+        "context": "Unix; fg возвращает процесс"
+      },
+      {
+        "key": "↑ / ↓",
+        "action": "Переместиться по вводу или истории",
+        "context": "Границы многострочного ввода открывают историю"
+      },
+      {
+        "key": "Esc",
+        "action": "Остановить ответ или закрыть диалог",
+        "context": "На запросе разрешения — отказ"
+      },
+      {
+        "key": "Esc, Esc",
+        "action": "Очистить черновик или открыть rewind",
+        "context": "Rewind при пустом вводе"
+      },
+      {
+        "key": "Shift+Tab",
+        "action": "Переключить режим разрешений",
+        "context": "Доступные режимы зависят от настроек"
+      },
+      {
+        "key": "Tab",
+        "action": "Принять автодополнение",
+        "context": "Поле запроса с подсказкой"
+      },
+      {
+        "key": "Ctrl+Enter",
+        "action": "Отправить сообщения очереди сейчас",
+        "context": "Терминал с расширенными клавишами"
+      },
+      {
+        "key": "Ctrl+x, Ctrl+s",
+        "action": "Отправить сообщения очереди сейчас",
+        "context": "Альтернатива Ctrl+Enter"
+      },
+      {
+        "key": "Ctrl+x, Ctrl+e",
+        "action": "Открыть внешний редактор",
+        "context": "Последовательность readline"
+      },
+      {
+        "key": "Ctrl+v",
+        "action": "Вставить изображение",
+        "context": "Linux; терминал должен передавать клавишу"
+      }
+    ],
+    "examples": [
+      {
+        "command": "claude",
+        "description": "Открыть интерактивный сеанс"
+      },
+      {
+        "command": "claude --permission-mode plan",
+        "description": "Начать с режима планирования"
+      },
+      {
+        "command": "claude --add-dir /path/to/extra",
+        "description": "Добавить рабочий каталог к сеансу"
+      },
+      {
+        "command": "claude --ax-screen-reader",
+        "description": "Использовать вывод для экранного диктора"
+      },
+      {
+        "command": "claude --continue",
+        "description": "Продолжить последний сеанс текущего каталога"
+      },
+      {
+        "command": "claude --help",
+        "description": "Открыть локальную справку аргументов"
+      }
+    ],
+    "notes": [
+      "Бинарник 2.1.311 вызывался только с --help; история, настройки доступа и сеансы не читались.",
+      "Клавиши стандартные из текущей официальной справки; терминал, Vim и пользовательский keybindings.json могут их менять.",
+      "Полная локальная справка аргументов доступна через --help; отдельная man-страница не обнаружена.",
+      "Сеанс может обращаться к провайдеру и менять проект в рамках выданных разрешений."
+    ],
+    "sources": [
+      {
+        "title": "Локальная справка бинарника 2.1.311",
+        "location": "~/.local/share/mise/installs/claude/latest/claude --help"
+      },
+      {
+        "title": "Официальный интерактивный режим",
+        "location": "https://code.claude.com/docs/en/interactive-mode"
+      }
+    ]
+  },
+  {
+    "id": "opencode",
+    "description": "OpenCode: терминальный интерфейс агента разработки с сеансами, инструментами и просмотром изменений.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "Ctrl+p",
+        "action": "Открыть палитру команд",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Ctrl+x, e",
+        "action": "Открыть внешний редактор",
+        "context": "Стандартный leader Ctrl+x"
+      },
+      {
+        "key": "Ctrl+x, b",
+        "action": "Переключить боковую панель",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Ctrl+x, n",
+        "action": "Создать сеанс",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Ctrl+x, l",
+        "action": "Открыть список сеансов",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Ctrl+o",
+        "action": "Открыть недавние сеансы и проекты",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Ctrl+Tab / Alt+↓",
+        "action": "Следующая вкладка сеанса",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Ctrl+Shift+Tab / Alt+↑",
+        "action": "Предыдущая вкладка сеанса",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Ctrl+x, w",
+        "action": "Закрыть текущую вкладку",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Ctrl+Shift+t",
+        "action": "Вернуть закрытую вкладку",
+        "context": "Стандартный TUI v2"
+      },
+      {
+        "key": "Esc",
+        "action": "Прервать текущую работу",
+        "context": "Открытый сеанс"
+      },
+      {
+        "key": "Ctrl+b",
+        "action": "Отправить блокирующие инструменты в фон",
+        "context": "Открытый сеанс"
+      },
+      {
+        "key": "Ctrl+x, c",
+        "action": "Сжать контекст",
+        "context": "Открытый сеанс"
+      },
+      {
+        "key": "Ctrl+c / Ctrl+d",
+        "action": "Выйти из приложения",
+        "context": "Глобальные сочетания; контекст может переопределять"
+      },
+      {
+        "key": "q / Esc",
+        "action": "Закрыть просмотр изменений",
+        "context": "Только Diff Viewer"
+      },
+      {
+        "key": "j / k",
+        "action": "Прокрутить изменения вниз / вверх",
+        "context": "Только Diff Viewer"
+      },
+      {
+        "key": "Ctrl+f / Ctrl+b",
+        "action": "Прокрутить на страницу",
+        "context": "Только Diff Viewer"
+      },
+      {
+        "key": "] / [",
+        "action": "Следующий / предыдущий фрагмент",
+        "context": "Только Diff Viewer"
+      },
+      {
+        "key": "n / p",
+        "action": "Следующий / предыдущий файл",
+        "context": "Только Diff Viewer"
+      },
+      {
+        "key": "v",
+        "action": "Сменить split/unified",
+        "context": "Только Diff Viewer"
+      },
+      {
+        "key": "?",
+        "action": "Показать остальные клавиши",
+        "context": "Только Diff Viewer"
+      }
+    ],
+    "examples": [
+      {
+        "command": "opencode",
+        "description": "Открыть интерфейс в текущем каталоге"
+      },
+      {
+        "command": "opencode /path/to/project",
+        "description": "Открыть выбранный проект"
+      },
+      {
+        "command": "opencode --continue",
+        "description": "Продолжить последний сеанс"
+      },
+      {
+        "command": "opencode --session SESSION_ID",
+        "description": "Продолжить сеанс с указанным идентификатором"
+      },
+      {
+        "command": "opencode mini",
+        "description": "Открыть минимальный интерфейс"
+      },
+      {
+        "command": "opencode --standalone",
+        "description": "Использовать отдельный сервер процесса"
+      },
+      {
+        "command": "opencode --help",
+        "description": "Показать команды и аргументы"
+      }
+    ],
+    "notes": [
+      "Установлена ветка 2.1.4: приведены клавиши официальной документации v2, а не старого OpenCode v1.",
+      "Leader по умолчанию Ctrl+x; запятая в карточке обозначает последовательность нажатий. Пользовательский cli.json не проверялся.",
+      "Ctrl+d имеет контекстные действия: например удаление выбранного сеанса в списке; перед нажатием проверяйте экран.",
+      "Установка проверена только с --help. Полная локальная справка аргументов — там; локальная man-страница не обнаружена."
+    ],
+    "sources": [
+      {
+        "title": "Локальная справка OpenCode 2.1.4",
+        "location": "~/.local/share/mise/installs/opencode/latest/node_modules/.bin/opencode --help"
+      },
+      {
+        "title": "Официальные клавиши OpenCode v2",
+        "location": "https://dev.opencode.ai/v2/docs/cli/keybinds/"
+      }
+    ]
+  },
+  {
+    "id": "cursor-agent",
+    "description": "Cursor Agent: работа с проектом из терминала в режимах Agent, Plan и Ask.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "Shift+Tab",
+        "action": "Переключить Agent, Plan и Ask",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "Shift+Enter",
+        "action": "Вставить новую строку",
+        "context": "Если терминал передаёт сочетание"
+      },
+      {
+        "key": "Ctrl+j",
+        "action": "Вставить новую строку",
+        "context": "Надёжный вариант для tmux"
+      },
+      {
+        "key": "\\, Enter",
+        "action": "Вставить новую строку",
+        "context": "Обратная косая черта, затем Enter"
+      },
+      {
+        "key": "Ctrl+d, Ctrl+d",
+        "action": "Выйти из CLI",
+        "context": "Повторное нажатие подтверждает выход"
+      },
+      {
+        "key": "↑",
+        "action": "Вернуть предыдущее сообщение",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Открыть просмотр изменений",
+        "context": "Интерактивный сеанс"
+      },
+      {
+        "key": "i",
+        "action": "Добавить последующие инструкции",
+        "context": "Просмотр изменений"
+      },
+      {
+        "key": "↑ / ↓",
+        "action": "Прокрутить изменения",
+        "context": "Просмотр изменений"
+      },
+      {
+        "key": "← / →",
+        "action": "Переключить файл",
+        "context": "Просмотр изменений"
+      },
+      {
+        "key": "@",
+        "action": "Выбрать файл или папку контекста",
+        "context": "Поле запроса"
+      },
+      {
+        "key": "y / n",
+        "action": "Разрешить / отклонить команду",
+        "context": "Запрос разрешения выполнения"
+      }
+    ],
+    "examples": [
+      {
+        "command": "cursor-agent",
+        "description": "Начать интерактивный сеанс"
+      },
+      {
+        "command": "cursor-agent --mode ask",
+        "description": "Изучать проект в режиме вопросов"
+      },
+      {
+        "command": "cursor-agent --plan",
+        "description": "Начать с планирования"
+      },
+      {
+        "command": "cursor-agent --workspace /path/to/project",
+        "description": "Выбрать рабочий проект"
+      },
+      {
+        "command": "cursor-agent --worktree task-name",
+        "description": "Создать отдельный worktree для задачи"
+      },
+      {
+        "command": "cursor-agent --continue",
+        "description": "Продолжить прошлый сеанс"
+      },
+      {
+        "command": "cursor-agent --help",
+        "description": "Прочитать справку установленной версии"
+      }
+    ],
+    "notes": [
+      "Справка проверена у установленного бинарника 2026.10.22-27dcf5f; сеансы и аккаунт не открывались.",
+      "Сочетания относятся к CLI, а не к графическому редактору Cursor. Приведён проверенный основной набор.",
+      "В tmux используйте Ctrl+j или обратную косую черту с Enter для новой строки.",
+      "Полная локальная справка аргументов — --help; отдельная man-страница не обнаружена. Запуск сеанса может обращаться к провайдеру."
+    ],
+    "sources": [
+      {
+        "title": "Локальная справка установленного бинарника",
+        "location": "~/.local/share/mise/installs/cursor-agent/latest/bin/cursor-agent --help"
+      },
+      {
+        "title": "Официальное руководство CLI",
+        "location": "https://prod.cursor.com/docs/cli/using"
+      },
+      {
+        "title": "Настройка ввода терминала",
+        "location": "https://prod.cursor.com/docs/cli/reference/terminal-setup"
+      }
+    ]
+  },
+  {
+    "id": "glab-tui",
+    "description": "Интерфейс GitLab и GitHub: issues, merge/pull requests, ревью diff, pipelines/jobs, runners, releases, milestones, ветки и окружения. Использует установленные glab или gh.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [
+      {
+        "path": "~/.local/share/tui-atlas/docs/glab-tui-0.9.3-README.md",
+        "label": "Официальная документация glab-tui v0.9.3: параметры, команды и все таблицы клавиш"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "j / k / ↑ / ↓",
+        "action": "Выбрать строку ниже / выше",
+        "context": "Списки"
+      },
+      {
+        "key": "l / →",
+        "action": "Следующая вкладка",
+        "context": "Глобально; стандартное назначение"
+      },
+      {
+        "key": "h / ←",
+        "action": "Предыдущая вкладка",
+        "context": "Глобально"
+      },
+      {
+        "key": "f / /",
+        "action": "Поиск и фильтр по видимым колонкам",
+        "context": "Глобально"
+      },
+      {
+        "key": "? / F1",
+        "action": "Открыть справку; ввод текста фильтрует её",
+        "context": "Глобально"
+      },
+      {
+        "key": "Ctrl+S",
+        "action": "Переключить локальный репозиторий",
+        "context": "Глобально"
+      },
+      {
+        "key": "q / Esc",
+        "action": "Выйти или закрыть текущий оверлей",
+        "context": "Глобально"
+      },
+      {
+        "key": "Tab / ,",
+        "action": "Настроить колонки, фильтры, группировку и сортировку",
+        "context": "Основной экран; Tab не переключает вкладки"
+      },
+      {
+        "key": "J / K",
+        "action": "Прокрутить описание вниз / вверх",
+        "context": "Панель описания"
+      },
+      {
+        "key": "Home / End",
+        "action": "Начало / конец описания",
+        "context": "Панель описания"
+      },
+      {
+        "key": "PageDown / PageUp",
+        "action": "Прокрутить описание на страницу",
+        "context": "Панель описания"
+      },
+      {
+        "key": "Ctrl+d / Ctrl+u",
+        "action": "Прокрутить описание на половину страницы",
+        "context": "Панель описания"
+      },
+      {
+        "key": "F5 / Ctrl+R",
+        "action": "Обновить текущую вкладку",
+        "context": "Глобально; загружает данные заново"
+      },
+      {
+        "key": "g",
+        "action": "Перейти к issue или MR по ID",
+        "context": "Глобально; отсутствующий элемент загружается с сервера"
+      },
+      {
+        "key": "u",
+        "action": "Проверить обновления программы",
+        "context": "Глобально"
+      },
+      {
+        "key": "n",
+        "action": "Создать issue",
+        "context": "Issues"
+      },
+      {
+        "key": "e",
+        "action": "Редактировать выбранный элемент или выделенную группу",
+        "context": "Issues и MR/PR"
+      },
+      {
+        "key": "m",
+        "action": "Создать MR/PR из issue",
+        "context": "Issues"
+      },
+      {
+        "key": "c / r",
+        "action": "Закрыть / переоткрыть элемент",
+        "context": "Issues и MR/PR"
+      },
+      {
+        "key": "d",
+        "action": "Удалить элемент с подтверждением",
+        "context": "Issues и MR/PR"
+      },
+      {
+        "key": "y",
+        "action": "Скопировать ссылку на выбранный элемент в Markdown",
+        "context": "Issues и MR/PR"
+      },
+      {
+        "key": "o",
+        "action": "Открыть выбранный элемент в браузере",
+        "context": "Issues, MR/PR и другие вкладки"
+      },
+      {
+        "key": "Space",
+        "action": "Выделить элемент для групповой операции",
+        "context": "Issues и MR/PR"
+      },
+      {
+        "key": "v",
+        "action": "Включить или выключить режим выделения",
+        "context": "Issues и MR/PR"
+      },
+      {
+        "key": "M",
+        "action": "Перейти к связанным MR/PR",
+        "context": "Issues"
+      },
+      {
+        "key": "n",
+        "action": "Создать MR из номера issue",
+        "context": "MR/PR"
+      },
+      {
+        "key": "a / A",
+        "action": "Одобрить MR / отозвать своё одобрение",
+        "context": "MR/PR; отзыв одобрения — только GitLab"
+      },
+      {
+        "key": "R",
+        "action": "Выполнить rebase исходной ветки",
+        "context": "MR/PR"
+      },
+      {
+        "key": "m",
+        "action": "Открыть слияние MR/PR",
+        "context": "MR/PR; проверьте параметры в диалоге подтверждения"
+      },
+      {
+        "key": "D",
+        "action": "Открыть diff в терминале",
+        "context": "MR/PR"
+      },
+      {
+        "key": "P",
+        "action": "Показать связанные pipelines",
+        "context": "MR/PR"
+      },
+      {
+        "key": "I",
+        "action": "Перейти к связанным issues",
+        "context": "MR/PR"
+      },
+      {
+        "key": "Y",
+        "action": "Посмотреть цепочку stacked PR",
+        "context": "MR/PR; GitHub"
+      },
+      {
+        "key": "s",
+        "action": "Переключить Draft / Ready",
+        "context": "MR/PR"
+      },
+      {
+        "key": "Tab",
+        "action": "Переключить фокус дерева файлов / diff",
+        "context": "Diff; клавиши этого экрана фиксированы"
+      },
+      {
+        "key": "[ / ]",
+        "action": "Предыдущий / следующий фрагмент изменений",
+        "context": "Diff"
+      },
+      {
+        "key": "Enter / Space",
+        "action": "Открыть файл или развернуть diff",
+        "context": "Diff; действие зависит от фокуса"
+      },
+      {
+        "key": "z / Z",
+        "action": "Свернуть / развернуть все файлы",
+        "context": "Diff"
+      },
+      {
+        "key": "m / M",
+        "action": "Отметить файл просмотренным / скрыть просмотренные",
+        "context": "Diff; отметки локальные"
+      },
+      {
+        "key": "d",
+        "action": "Переключить единый diff / две колонки",
+        "context": "Diff"
+      },
+      {
+        "key": "v / V",
+        "action": "Начать / закончить выделение нескольких строк",
+        "context": "Diff"
+      },
+      {
+        "key": "c / C",
+        "action": "Добавить комментарий / открыть комментарий в редакторе",
+        "context": "Diff"
+      },
+      {
+        "key": "e",
+        "action": "Добавить предложение изменения через редактор",
+        "context": "Diff"
+      },
+      {
+        "key": "a",
+        "action": "Открыть действия с обсуждением",
+        "context": "Diff"
+      },
+      {
+        "key": "T",
+        "action": "Показать все обсуждения ревью",
+        "context": "Diff"
+      },
+      {
+        "key": "r",
+        "action": "Открыть отправку ревью",
+        "context": "Diff; публикация комментариев и решения на сервере"
+      },
+      {
+        "key": "/ / f",
+        "action": "Поиск в diff",
+        "context": "Diff"
+      },
+      {
+        "key": "Ctrl+N / Ctrl+Shift+N",
+        "action": "Следующее / предыдущее совпадение",
+        "context": "Diff"
+      },
+      {
+        "key": "Enter / Alt+j",
+        "action": "Открыть pipeline / сразу его jobs",
+        "context": "Pipelines"
+      },
+      {
+        "key": "n / p",
+        "action": "Создать pipeline через форму / запустить для текущей ветки",
+        "context": "Pipelines; изменяет состояние CI"
+      },
+      {
+        "key": "r / d",
+        "action": "Перезапустить / отменить pipeline",
+        "context": "Pipelines"
+      },
+      {
+        "key": "Enter",
+        "action": "Показать лог job; повторное нажатие меняет масштаб",
+        "context": "Jobs"
+      },
+      {
+        "key": "r / S / c",
+        "action": "Повторить / запустить manual job / отменить job",
+        "context": "Jobs"
+      },
+      {
+        "key": "d / e",
+        "action": "Скачать артефакт / открыть лог в редакторе",
+        "context": "Jobs"
+      },
+      {
+        "key": "s / Space",
+        "action": "Выделить jobs стадии / отдельную job",
+        "context": "Jobs"
+      },
+      {
+        "key": "w",
+        "action": "Переключить перенос строк",
+        "context": "Лог job или вкладка Terminal"
+      },
+      {
+        "key": "Esc / Backspace",
+        "action": "Вернуться от лога к jobs и pipelines",
+        "context": "Pipelines и Jobs"
+      },
+      {
+        "key": "p / r / e",
+        "action": "Приостановить runner / возобновить / изменить описание",
+        "context": "Runners"
+      },
+      {
+        "key": "n / e / d",
+        "action": "Создать / изменить / удалить release",
+        "context": "Releases; удаление с подтверждением"
+      },
+      {
+        "key": "n / e / c / r / d",
+        "action": "Создать / изменить / закрыть / переоткрыть / удалить milestone",
+        "context": "Milestones"
+      },
+      {
+        "key": "Enter",
+        "action": "Отметить прочитанным и перейти к объекту",
+        "context": "Todos / Notifications"
+      },
+      {
+        "key": "n / d / y",
+        "action": "Создать ветку / удалить с подтверждением / скопировать имя",
+        "context": "Branches"
+      },
+      {
+        "key": "Enter",
+        "action": "Показать развёртывания окружения",
+        "context": "Environments"
+      },
+      {
+        "key": "Space / Enter / Esc",
+        "action": "Изменить выбор / применить / отменить",
+        "context": "Окно выбора labels, assignees и фильтров"
+      },
+      {
+        "key": "f / / / i",
+        "action": "Включить фильтр",
+        "context": "Окно выбора labels, assignees и фильтров"
+      }
+    ],
+    "examples": [
+      {
+        "command": "glab-tui",
+        "description": "Запустить для Git-репозитория в текущем каталоге"
+      },
+      {
+        "command": "glab-tui --dir /путь/к/репозиторию",
+        "description": "Задать локальный репозиторий; удобный вариант запуска из Atlas"
+      },
+      {
+        "command": "glab-tui --repo group/project",
+        "description": "Указать удалённый репозиторий"
+      },
+      {
+        "command": "glab-tui --group organization",
+        "description": "Открыть GitLab-группу или GitHub-организацию"
+      },
+      {
+        "command": "glab-tui --tab mrs",
+        "description": "Сразу открыть merge requests / pull requests"
+      },
+      {
+        "command": "glab-tui --tab pipelines",
+        "description": "Сразу открыть pipelines / actions"
+      },
+      {
+        "command": "glab-tui --config /путь/config.toml",
+        "description": "Использовать другой файл настроек"
+      },
+      {
+        "command": "glab-tui --help",
+        "description": "Все основные параметры и подкоманды"
+      },
+      {
+        "command": "glab-tui --version",
+        "description": "Показать установленную версию"
+      },
+      {
+        "command": "glab-tui doctor",
+        "description": "Проверить зависимости и состояние конфигурации"
+      },
+      {
+        "command": "glab-tui cache",
+        "description": "Показать размеры файлов кеша"
+      },
+      {
+        "command": "glab-tui repos",
+        "description": "Показать недавние репозитории"
+      },
+      {
+        "command": "glab-tui clean-cache --dry-run",
+        "description": "Предварительно показать очистку устаревшего кеша"
+      },
+      {
+        "command": "glab-tui clean-cache",
+        "description": "Удалить кеш уже не существующих репозиториев"
+      },
+      {
+        "command": "glab-tui open issue 42",
+        "description": "Открыть issue в браузере без TUI"
+      },
+      {
+        "command": "glab-tui open mr 7",
+        "description": "Открыть MR/PR в браузере без TUI"
+      },
+      {
+        "command": "glab-tui review threads 42",
+        "description": "Прочитать обсуждения MR/PR в JSON без TUI"
+      },
+      {
+        "command": "glab-tui review --help",
+        "description": "Подкоманды чтения и публикации ревью; comment, submit, reply, resolve меняют серверные данные"
+      },
+      {
+        "command": "glab-tui --update",
+        "description": "Проверить и установить обновление самого glab-tui"
+      }
+    ],
+    "notes": [
+      "Клавиши стандартные для v0.9.3. Глобальный ~/.config/glab-tui/config.toml на момент проверки отсутствует; конфигурация конкретного репозитория может переназначать клавиши.",
+      "Запускайте из Git-репозитория с remote либо задайте --dir /путь/к/репозиторию, --repo group/project или --group organization в окне аргументов Atlas.",
+      "GitLab использует glab, GitHub — gh. Авторизация выполняется штатным входом соответствующего клиента; Atlas не переносит токены.",
+      "Tab на основном экране открывает настройки колонок; вкладки переключаются h/l. В diff Tab переключает дерево файлов и текст.",
+      "Справка и примеры не выполняют операции над проектом. Действия создания, удаления, merge, review и управления CI выполняются при их явном вызове в glab-tui.",
+      "Полная локальная копия README тега v0.9.3 доступна в Документации. Встроенная ? / F1 показывает контекстную справку самого glab-tui."
+    ],
+    "sources": [
+      {
+        "title": "Установленный glab-tui 0.9.3: --version, --help, review --help и open --help",
+        "location": "~/.local/bin/glab-tui"
+      },
+      {
+        "title": "Официальный README тега v0.9.3",
+        "location": "https://github.com/rcieri/glab-tui/blob/v0.9.3/README.md"
+      }
+    ]
+  },
+  {
+    "id": "aerc",
+    "description": "Почтовый клиент с вкладками, цепочками переписки, Vim-подобным управлением и внешним редактором. Поддерживает несколько аккаунтов, IMAP, JMAP, Maildir, mbox и Notmuch; отправку SMTP и PGP.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "aerc",
+      "aerc-tutorial",
+      "aerc-binds",
+      "aerc-search",
+      "aerc-config"
+    ],
+    "doc_files": [
+      {
+        "path": "/usr/share/aerc/binds.conf",
+        "label": "Полные стандартные клавиши установленного aerc 0.22.0"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": ":",
+        "action": "Открыть командную строку",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "Ctrl+x",
+        "action": "Открыть командную строку",
+        "context": "Редактор письма и встроенный терминал"
+      },
+      {
+        "key": "?",
+        "action": "Показать действующие клавиши через :help keys",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "Ctrl+p / Ctrl+PgUp / [t",
+        "action": "Предыдущая вкладка",
+        "context": "Список и просмотр писем; [t вне редактора"
+      },
+      {
+        "key": "Ctrl+n / Ctrl+PgDn / ]t",
+        "action": "Следующая вкладка",
+        "context": "Список и просмотр писем; ]t вне редактора"
+      },
+      {
+        "key": "Ctrl+t",
+        "action": "Открыть вкладку с терминалом",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "Ctrl+c / Ctrl+q",
+        "action": "Запросить выход из aerc",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "Ctrl+z",
+        "action": "Приостановить aerc",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "q",
+        "action": "Запросить выход из aerc",
+        "context": "Список писем"
+      },
+      {
+        "key": ".",
+        "action": "Повторить последнюю команду",
+        "context": "Список писем"
+      },
+      {
+        "key": "j / k / ↓ / ↑",
+        "action": "Следующее / предыдущее письмо",
+        "context": "Список писем"
+      },
+      {
+        "key": "Ctrl+d / Ctrl+u",
+        "action": "На половину списка вниз / вверх",
+        "context": "Список писем"
+      },
+      {
+        "key": "Ctrl+f / Ctrl+b / PgDn / PgUp",
+        "action": "На страницу списка вниз / вверх",
+        "context": "Список писем"
+      },
+      {
+        "key": "g / G",
+        "action": "Первое / последнее письмо",
+        "context": "Список писем"
+      },
+      {
+        "key": "J / K / Ctrl+↓ / Ctrl+↑",
+        "action": "Следующая / предыдущая папка",
+        "context": "Список писем"
+      },
+      {
+        "key": "H / L / Ctrl+← / Ctrl+→",
+        "action": "Свернуть / развернуть папку",
+        "context": "Список писем"
+      },
+      {
+        "key": "tf",
+        "action": "Свернуть / развернуть текущую папку в дереве",
+        "context": "Список писем"
+      },
+      {
+        "key": "c",
+        "action": "Начать команду :cf для перехода в папку",
+        "context": "Список писем"
+      },
+      {
+        "key": "v",
+        "action": "Переключить отметку выбранного письма",
+        "context": "Список писем"
+      },
+      {
+        "key": "Space",
+        "action": "Переключить отметку и перейти к следующему письму",
+        "context": "Список писем"
+      },
+      {
+        "key": "V",
+        "action": "Войти / выйти из режима визуального выделения",
+        "context": "Список писем"
+      },
+      {
+        "key": "T",
+        "action": "Переключить отображение цепочек",
+        "context": "Список писем"
+      },
+      {
+        "key": "zc / zo / za / Tab",
+        "action": "Свернуть / развернуть / переключить цепочку",
+        "context": "Список писем"
+      },
+      {
+        "key": "zM / zR",
+        "action": "Свернуть / развернуть все цепочки",
+        "context": "Список писем"
+      },
+      {
+        "key": "zz / zt / zb",
+        "action": "Поместить выбранное письмо в центр / начало / конец области",
+        "context": "Список писем"
+      },
+      {
+        "key": "Enter",
+        "action": "Открыть письмо",
+        "context": "Список писем; в папке Drafts — восстановить черновик"
+      },
+      {
+        "key": "d",
+        "action": "Удалить письмо после подтверждения",
+        "context": "Список писем"
+      },
+      {
+        "key": "D",
+        "action": "Удалить письмо без диалога подтверждения",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "a",
+        "action": "Архивировать выбранные письма без дерева папок",
+        "context": "Список писем"
+      },
+      {
+        "key": "A",
+        "action": "Архивировать всю цепочку выбранного письма",
+        "context": "Список писем"
+      },
+      {
+        "key": "m / C",
+        "action": "Создать письмо",
+        "context": "Список писем"
+      },
+      {
+        "key": "b",
+        "action": "Начать перенаправление через :bounce",
+        "context": "Список писем"
+      },
+      {
+        "key": "rr / rq",
+        "action": "Ответить всем / ответить всем с цитатой",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "Rr / Rq",
+        "action": "Ответить отправителю / ответить с цитатой",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "/",
+        "action": "Начать поиск писем через :search",
+        "context": "Список писем"
+      },
+      {
+        "key": "\\",
+        "action": "Начать фильтрацию через :filter",
+        "context": "Список писем"
+      },
+      {
+        "key": "n / N",
+        "action": "Следующее / предыдущее совпадение поиска",
+        "context": "Список писем"
+      },
+      {
+        "key": "Esc",
+        "action": "Сбросить поиск и фильтр",
+        "context": "Список писем"
+      },
+      {
+        "key": "s / S",
+        "action": "Открыть предпросмотр ниже / справа",
+        "context": "Список писем"
+      },
+      {
+        "key": "$ / !",
+        "action": "Начать запуск команды во встроенном терминале",
+        "context": "Список писем"
+      },
+      {
+        "key": "|",
+        "action": "Передать письмо внешней программе через :pipe",
+        "context": "Список и просмотр писем"
+      },
+      {
+        "key": "pl / pa / pd",
+        "action": "Список / применение / удаление набора патчей",
+        "context": "Список писем; действия :patch"
+      },
+      {
+        "key": "pb / pt / ps",
+        "action": "Rebase / терминал / переключение проекта патчей",
+        "context": "Список писем; действия :patch"
+      },
+      {
+        "key": "q",
+        "action": "Закрыть письмо и вернуться к списку",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "o / O",
+        "action": "Открыть выбранную часть письма внешней программой",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "S",
+        "action": "Начать сохранение выбранной части письма",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "A",
+        "action": "Архивировать выбранное письмо",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "f",
+        "action": "Переслать письмо",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "H",
+        "action": "Переключить показ полных заголовков",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "Ctrl+k / Ctrl+j / Ctrl+↑ / Ctrl+↓",
+        "action": "Предыдущая / следующая часть письма",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "J / K / Ctrl+→ / Ctrl+←",
+        "action": "Следующее / предыдущее письмо",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "Ctrl+y / Ctrl+l",
+        "action": "Начать копирование / открытие ссылки",
+        "context": "Просмотр письма"
+      },
+      {
+        "key": "/",
+        "action": "Передать поиск встроенному просмотрщику",
+        "context": "Просмотр письма; Esc отключает передачу клавиш"
+      },
+      {
+        "key": "Tab / Shift+Tab",
+        "action": "Следующее / предыдущее поле",
+        "context": "Создание письма; вне встроенного редактора"
+      },
+      {
+        "key": "Ctrl+j / Ctrl+k / Ctrl+↓ / Ctrl+↑",
+        "action": "Следующее / предыдущее поле",
+        "context": "Создание письма, включая редактор"
+      },
+      {
+        "key": "Alt+n / Alt+p",
+        "action": "Следующий / предыдущий аккаунт отправителя",
+        "context": "Создание письма; вне встроенного редактора"
+      },
+      {
+        "key": "y",
+        "action": "Отправить письмо",
+        "context": "Проверка перед отправкой"
+      },
+      {
+        "key": "n",
+        "action": "Отменить и отбросить письмо без подтверждения",
+        "context": "Проверка перед отправкой"
+      },
+      {
+        "key": "q",
+        "action": "Выбрать удаление или сохранение черновика",
+        "context": "Проверка перед отправкой"
+      },
+      {
+        "key": "p",
+        "action": "Отложить письмо в черновики",
+        "context": "Проверка перед отправкой"
+      },
+      {
+        "key": "e",
+        "action": "Редактировать тело и заголовки",
+        "context": "Проверка перед отправкой"
+      },
+      {
+        "key": "a / d",
+        "action": "Добавить / убрать вложение",
+        "context": "Проверка перед отправкой"
+      },
+      {
+        "key": "v",
+        "action": "Предпросмотр письма",
+        "context": "Проверка перед отправкой"
+      },
+      {
+        "key": "s / x",
+        "action": "Переключить подпись / шифрование для получателей",
+        "context": "Проверка перед отправкой"
+      }
+    ],
+    "examples": [
+      {
+        "command": "aerc",
+        "description": "Запустить клиент; первый запуск предлагает настроить аккаунт"
+      },
+      {
+        "command": "aerc --help",
+        "description": "Показать параметры запуска без подключения к почте"
+      },
+      {
+        "command": "aerc --version",
+        "description": "Показать установленную версию"
+      },
+      {
+        "command": "aerc -a work",
+        "description": "Загрузить только настроенный аккаунт work"
+      },
+      {
+        "command": "aerc -a work,personal",
+        "description": "Загрузить два настроенных аккаунта в указанном порядке"
+      },
+      {
+        "command": "aerc -C /путь/aerc.conf",
+        "description": "Использовать другой общий конфиг"
+      },
+      {
+        "command": "aerc -A /путь/accounts.conf",
+        "description": "Использовать другой файл аккаунтов"
+      },
+      {
+        "command": "aerc -B /путь/binds.conf",
+        "description": "Использовать другой файл сочетаний клавиш"
+      },
+      {
+        "command": "aerc -I",
+        "description": "Запустить отдельный экземпляр без IPC"
+      },
+      {
+        "command": "aerc mailto:person@example.org",
+        "description": "Открыть редактор нового письма указанному получателю"
+      },
+      {
+        "command": "aerc mbox:/путь/archive.mbox",
+        "description": "Открыть локальный mbox как временный аккаунт"
+      },
+      {
+        "command": "aerc ':help tutorial'",
+        "description": "Открыть встроенное руководство; в работающем aerc достаточно :help tutorial"
+      },
+      {
+        "command": "aerc ':help keys'",
+        "description": "Показать активные сочетания клавиш"
+      },
+      {
+        "command": "aerc ':new-account'",
+        "description": "Открыть мастер добавления аккаунта"
+      },
+      {
+        "command": "aerc ':cf INBOX'",
+        "description": "Перейти в папку INBOX текущего аккаунта"
+      },
+      {
+        "command": "aerc ':search meeting'",
+        "description": "Найти письма со словом meeting в теме"
+      },
+      {
+        "command": "aerc ':filter -f person@example.org'",
+        "description": "Оставить в списке письма выбранного отправителя"
+      },
+      {
+        "command": "aerc ':clear'",
+        "description": "Сбросить поиск и фильтрацию"
+      },
+      {
+        "command": "aerc ':compose'",
+        "description": "Начать создание письма"
+      },
+      {
+        "command": "aerc ':reply -a'",
+        "description": "Ответить всем на выбранное письмо"
+      },
+      {
+        "command": "aerc ':read'",
+        "description": "Отметить выбранные или отмеченные письма прочитанными"
+      },
+      {
+        "command": "aerc ':unread'",
+        "description": "Отметить выбранные или отмеченные письма непрочитанными"
+      },
+      {
+        "command": "aerc ':flag -t'",
+        "description": "Переключить флаг выбранных или отмеченных писем"
+      },
+      {
+        "command": "aerc ':eml /путь/message.eml'",
+        "description": "Открыть локальный EML-файл"
+      }
+    ],
+    "notes": [
+      "Клавиши сверены со штатным /usr/share/aerc/binds.conf версии 0.22.0. На момент добавления ~/.config/aerc отсутствует; собственный binds.conf может переопределить сочетания. Точные действующие клавиши показывает :help keys.",
+      "Первый запуск предлагает мастер аккаунта; позднее его открывает :new-account. Установка не настраивает почтовый ящик. Авторизация зависит от провайдера.",
+      "В списке q запрашивает выход, в просмотре закрывает письмо. В редакторе письма командная строка открывается Ctrl+x; сочетания Neovim внутри редактора остаются его собственными.",
+      "D удаляет без отдельного диалога, а n на экране проверки без подтверждения отбрасывает создаваемое письмо. Для удаления с подтверждением в списке используйте d.",
+      "Двоеточие начинает внутреннюю команду. Примеры aerc :команда могут обратиться к уже работающему экземпляру по IPC; -I отключает этот механизм. Просмотр карточки Atlas команды не выполняет.",
+      "HTML отображается текстовым фильтром; для части HTML-фильтров нужны отдельные w3m/dante. Эти необязательные пакеты вместе с aerc не устанавливались.",
+      "Полный список внутренних команд находится в man aerc, а параметры поиска — в man aerc-search. Локальные файлы accounts.conf и токены Atlas не читает."
+    ],
+    "sources": [
+      {
+        "title": "Версия и CLI-справка установленного aerc",
+        "location": "/usr/bin/aerc --version / --help"
+      },
+      {
+        "title": "Стандартные сочетания aerc 0.22.0",
+        "location": "/usr/share/aerc/binds.conf"
+      },
+      {
+        "title": "Локальные руководства: команды, поиск, настройка и обучение",
+        "location": "man aerc; man aerc-search; man aerc-tutorial; man aerc-binds; man aerc-config"
+      },
+      {
+        "title": "Официальный сайт aerc",
+        "location": "https://aerc-mail.org/"
+      }
+    ]
+  },
+  {
+    "id": "forge-deck",
+    "description": "Самостоятельный TUI-клиент GitHub и GitLab: репозитории, организации/группы, PR/MR с диффами и комментариями, Actions/пайплайны, джобы и логи, избранное и подтверждаемые изменения настроек. Тема Tokyo Night, интерфейс EN/RU.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [
+      {
+        "path": "~/.local/share/tui-atlas/docs/forge-deck-0.3.0-README.ru.md",
+        "label": "Forge Deck 0.3.0: руководство на русском"
+      },
+      {
+        "path": "~/.local/share/tui-atlas/docs/forge-deck-0.3.0-README.md",
+        "label": "Forge Deck 0.3.0: English README"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "j / k / ↑ / ↓",
+        "action": "Выбрать строку или прокрутить текст",
+        "context": "Основной экран и предпросмотр"
+      },
+      {
+        "key": "PgUp / PgDn",
+        "action": "Переместиться на десять строк",
+        "context": "Списки и текст"
+      },
+      {
+        "key": "Home / End",
+        "action": "В начало или конец списка/текста",
+        "context": "Списки, файлы, PR/MR, диффы и логи"
+      },
+      {
+        "key": "Tab / Shift+Tab",
+        "action": "Переключить фокус: меню, содержимое, предпросмотр",
+        "context": "В узком терминале открывает скрытую панель"
+      },
+      {
+        "key": "Enter",
+        "action": "Открыть выбранный объект; начать редактирование настройки",
+        "context": "Списки и настройки"
+      },
+      {
+        "key": "Esc / Backspace",
+        "action": "Вернуться к предыдущему экрану",
+        "context": "Основной экран"
+      },
+      {
+        "key": "1",
+        "action": "Открыть репозитории GitHub или проекты GitLab",
+        "context": "Глобально"
+      },
+      {
+        "key": "2",
+        "action": "Открыть организации GitHub или группы GitLab",
+        "context": "Глобально"
+      },
+      {
+        "key": "3",
+        "action": "Открыть PR с вашим участием в GitHub или открытые MR GitLab",
+        "context": "Глобально"
+      },
+      {
+        "key": "o",
+        "action": "Открыть обзор выбранного репозитория/проекта",
+        "context": "Каталог или открытый проект"
+      },
+      {
+        "key": "f",
+        "action": "Открыть файлы репозитория",
+        "context": "Каталог или открытый проект"
+      },
+      {
+        "key": "b",
+        "action": "Показать ветки",
+        "context": "Каталог или открытый проект"
+      },
+      {
+        "key": "m",
+        "action": "Показать PR или MR текущего проекта",
+        "context": "Каталог или открытый проект"
+      },
+      {
+        "key": "p",
+        "action": "Открыть GitHub Actions или пайплайны GitLab",
+        "context": "Каталог или открытый проект"
+      },
+      {
+        "key": "s",
+        "action": "Открыть настройки репозитория/проекта",
+        "context": "Каталог или открытый проект"
+      },
+      {
+        "key": "d",
+        "action": "Открыть дифф PR/MR",
+        "context": "Открытый PR/MR"
+      },
+      {
+        "key": "c",
+        "action": "Открыть комментарии PR/MR",
+        "context": "GitHub: общая лента без inline review comments"
+      },
+      {
+        "key": "/",
+        "action": "Открыть поиск или фильтр",
+        "context": "В CI — точное имя ветки; в тексте — поиск совпадений"
+      },
+      {
+        "key": "n / N",
+        "action": "Следующая/предыдущая страница или совпадение",
+        "context": "Списки с пагинацией; в тексте — совпадения"
+      },
+      {
+        "key": "[ / ]",
+        "action": "Предыдущая/следующая страница API",
+        "context": "В том числе страницы диффа и комментариев"
+      },
+      {
+        "key": "← / →",
+        "action": "Прокрутить длинные строки по горизонтали",
+        "context": "Текстовые экраны"
+      },
+      {
+        "key": "*",
+        "action": "Добавить или убрать репозиторий из избранного",
+        "context": "Каталог или открытый проект; отдельно для каждой платформы/сервера"
+      },
+      {
+        "key": "R / F5",
+        "action": "Перечитать текущий экран или лог",
+        "context": "Глобально"
+      },
+      {
+        "key": "r",
+        "action": "Повторить запуск CI или джобу",
+        "context": "GitHub/GitLab, после подтверждения; GitHub также повторяет зависимые джобы"
+      },
+      {
+        "key": "x",
+        "action": "Отменить CI",
+        "context": "GitHub: весь workflow run; GitLab: пайплайн или джоба; после подтверждения"
+      },
+      {
+        "key": "S",
+        "action": "Запустить ручную джобу",
+        "context": "Только GitLab, после подтверждения"
+      },
+      {
+        "key": "e",
+        "action": "Редактировать выбранное поле",
+        "context": "Настройки; сохраняется одно поле после подтверждения"
+      },
+      {
+        "key": "← / →",
+        "action": "Выбрать допустимое значение",
+        "context": "Ввод настройки с вариантами или true/false"
+      },
+      {
+        "key": "Ctrl+u",
+        "action": "Очистить строку ввода",
+        "context": "Поиск, адрес сервера и редактирование настройки"
+      },
+      {
+        "key": "Enter / y",
+        "action": "Подтвердить действие",
+        "context": "Диалог подтверждения; Esc/n отменяет"
+      },
+      {
+        "key": "G",
+        "action": "Переключить GitHub / GitLab",
+        "context": "Глобально; сервер и избранное сохраняются отдельно"
+      },
+      {
+        "key": "H",
+        "action": "Изменить сервер текущей платформы",
+        "context": "Имя сервера и необязательный порт, без https:// и пути"
+      },
+      {
+        "key": "L",
+        "action": "Переключить русский / английский",
+        "context": "Обновляет экран; выбор сохраняется в обычном режиме"
+      },
+      {
+        "key": "?",
+        "action": "Открыть справку по клавишам",
+        "context": "Основной экран"
+      },
+      {
+        "key": "q / Ctrl+c",
+        "action": "Выйти из приложения",
+        "context": "q на основном экране; Ctrl+c также завершает ввод/диалог"
+      }
+    ],
+    "examples": [
+      {
+        "command": "forge-deck",
+        "description": "Открыть сохранённую платформу и сервер"
+      },
+      {
+        "command": "forge-deck --provider github",
+        "description": "Подключиться к GitHub"
+      },
+      {
+        "command": "forge-deck --provider gitlab",
+        "description": "Подключиться к GitLab"
+      },
+      {
+        "command": "forge-deck --provider github --host github.example.org",
+        "description": "Выбрать сервер GitHub Enterprise"
+      },
+      {
+        "command": "forge-deck --provider gitlab --host gitlab.example.org",
+        "description": "Выбрать собственный сервер GitLab"
+      },
+      {
+        "command": "forge-deck --demo --provider github --lang ru",
+        "description": "Деморежим GitHub без сети и доступов"
+      },
+      {
+        "command": "forge-deck --demo --provider gitlab --lang ru",
+        "description": "Деморежим GitLab без сети и доступов"
+      },
+      {
+        "command": "forge-deck --lang en",
+        "description": "Английский интерфейс"
+      },
+      {
+        "command": "forge-deck --lang ru",
+        "description": "Русский интерфейс"
+      },
+      {
+        "command": "forge-deck --provider github --check",
+        "description": "Проверить чтение первой страницы репозиториев GitHub без TUI"
+      },
+      {
+        "command": "forge-deck --provider gitlab --check",
+        "description": "Проверить чтение первой страницы проектов GitLab без TUI"
+      },
+      {
+        "command": "forge-deck --help",
+        "description": "Показать параметры запуска"
+      },
+      {
+        "command": "forge-deck --version",
+        "description": "Показать установленную версию"
+      },
+      {
+        "command": "gitlab-deck --provider github",
+        "description": "Совместимое старое имя команды для Forge Deck"
+      }
+    ],
+    "notes": [
+      "Прежнее название — GitLab Deck; команда gitlab-deck остаётся совместимой. Это отдельное приложение, не glab-tui.",
+      "Авторизацию выполняют gh и glab. При запуске из Atlas используется work-run, если он доступен. Просмотр карточки и --help не подключаются к серверу.",
+      "G переключает платформу, H — её сервер, L — язык. Адреса и избранное раздельны по платформе и серверу.",
+      "Настройки сохраняются в ~/.config/forge-deck/config.json. Если нового файла нет, читается прежний gitlab-deck/config.json; исходный файл остаётся неизменным.",
+      "Настройки и действия CI требуют подтверждения. GitHub требует admin для настроек, GitLab — Maintainer/Owner; окончательное решение принимает сервер.",
+      "GitHub не поддерживает отмену отдельной джобы и запуск ручной джобы как в GitLab. Повтор джобы GitHub затрагивает зависимые джобы.",
+      "Комментарии GitHub — общая лента PR без inline review comments; отправка комментариев и merge PR/MR не реализованы.",
+      "Списки по 50 записей; файлы, джобы, избранное и организации/ветки GitHub фильтруются на текущей странице. Поиск GitHub ограничен 1000 результатами, каталоги Contents — 1000 элементами.",
+      "При неизвестном результате изменения сверьте состояние на сервере перед повтором. Логи обновляются вручную R/F5.",
+      "Деморежим не использует сеть, доступы и не записывает настройки. Минимальный терминал 80×24; Tab переключает скрытые панели."
+    ],
+    "sources": [
+      {
+        "title": "Проверенный исходник Forge Deck 0.3.0: руководство и клавиши",
+        "location": "https://github.com/IgorKramar/forge-deck/blob/a3b851eb0a7ae60aa5320bc4a2695e5c06230d0b/README.ru.md"
+      },
+      {
+        "title": "Локальная справка установленного бинарника",
+        "location": "forge-deck --help"
+      }
+    ]
+  }
+]

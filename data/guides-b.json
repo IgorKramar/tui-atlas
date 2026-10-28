@@ -1,0 +1,1878 @@
+[
+  {
+    "id": "browsh",
+    "description": "Терминальный браузер с отрисовкой страниц через Firefox: подходит для сайтов с JavaScript и сложной вёрсткой.",
+    "launch_args": [
+      "--startup-url",
+      "about:blank"
+    ],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "F1",
+        "action": "Открыть документацию",
+        "context": "Браузер"
+      },
+      {
+        "key": "↑ ↓ ← →",
+        "action": "Прокрутить страницу",
+        "context": "Страница"
+      },
+      {
+        "key": "PageUp / PageDown",
+        "action": "Прокрутить на экран",
+        "context": "Страница"
+      },
+      {
+        "key": "Ctrl+q",
+        "action": "Выйти",
+        "context": "Браузер"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Перейти в адресную строку",
+        "context": "Браузер"
+      },
+      {
+        "key": "Backspace",
+        "action": "Вернуться назад",
+        "context": "Навигация по страницам"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Перезагрузить страницу",
+        "context": "Браузер"
+      },
+      {
+        "key": "Ctrl+t",
+        "action": "Открыть вкладку",
+        "context": "Браузер"
+      },
+      {
+        "key": "Ctrl+w",
+        "action": "Закрыть вкладку",
+        "context": "Браузер"
+      },
+      {
+        "key": "Ctrl+\\",
+        "action": "Перейти к следующей вкладке",
+        "context": "Браузер"
+      },
+      {
+        "key": "Alt+Shift+p",
+        "action": "Сохранить снимок экрана; путь появится в строке состояния",
+        "context": "Браузер"
+      },
+      {
+        "key": "Alt+m",
+        "action": "Переключить монохромный режим",
+        "context": "Браузер"
+      },
+      {
+        "key": "Alt+u",
+        "action": "Переключить мобильный и настольный User-Agent",
+        "context": "Браузер"
+      }
+    ],
+    "examples": [
+      {
+        "command": "browsh --startup-url about:blank",
+        "description": "Начать с пустой страницы"
+      },
+      {
+        "command": "browsh --startup-url https://example.org",
+        "description": "Открыть указанный сайт"
+      },
+      {
+        "command": "browsh --monochrome --startup-url about:blank",
+        "description": "Запустить монохромное отображение"
+      },
+      {
+        "command": "browsh --firefox.path /usr/bin/firefox --startup-url about:blank",
+        "description": "Явно выбрать Firefox"
+      },
+      {
+        "command": "browsh --help",
+        "description": "Показать параметры запуска"
+      }
+    ],
+    "notes": [
+      "Нужен установленный Firefox; терминал показывает результат его работы.",
+      "Начальные аргументы Atlas открывают about:blank. Переход по URL выполняет сетевой запрос.",
+      "Клавиши приведены по официальной документации; переназначения пользователя не читались.",
+      "--help у установленной версии печатает справку, но возвращает код 2."
+    ],
+    "sources": [
+      {
+        "title": "Официальные клавиши Browsh",
+        "location": "https://www.brow.sh/docs/keybindings/"
+      },
+      {
+        "title": "Параметры установленного Browsh",
+        "location": "/usr/bin/browsh --help"
+      }
+    ]
+  },
+  {
+    "id": "cha",
+    "description": "Chawan — терминальный браузер и просмотрщик локальных документов с буферами, поиском и управлением в стиле vi.",
+    "launch_args": ["-V"],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "cha",
+      "cha-config",
+      "cha-api",
+      "cha-terminal"
+    ],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "q",
+        "action": "Выйти",
+        "context": "Просмотр страницы"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Открыть текущий адрес для редактирования",
+        "context": "Страница"
+      },
+      {
+        "key": "Alt+l",
+        "action": "Редактировать адрес ссылки под курсором",
+        "context": "Страница"
+      },
+      {
+        "key": "Ctrl+k",
+        "action": "Открыть строку веб-поиска",
+        "context": "Страница; поисковик задаётся конфигурацией"
+      },
+      {
+        "key": "↑ / ↓",
+        "action": "Переместить курсор по строкам",
+        "context": "Страница"
+      },
+      {
+        "key": "h / l",
+        "action": "Переместить курсор влево / вправо",
+        "context": "Страница"
+      },
+      {
+        "key": "[ / ]",
+        "action": "Предыдущая / следующая ссылка или поле",
+        "context": "Страница"
+      },
+      {
+        "key": "Enter",
+        "action": "Активировать элемент под курсором",
+        "context": "Страница"
+      },
+      {
+        "key": "f",
+        "action": "Показать подсказки ссылок и перейти по метке",
+        "context": "Страница; стандартный toggleLinkHints"
+      },
+      {
+        "key": "Ctrl+b / Ctrl+f",
+        "action": "Предыдущий / следующий экран",
+        "context": "Страница"
+      },
+      {
+        "key": "Ctrl+u / Ctrl+d",
+        "action": "Половина экрана вверх / вниз",
+        "context": "Страница"
+      },
+      {
+        "key": "gg / G",
+        "action": "Начало / конец документа",
+        "context": "Страница"
+      },
+      {
+        "key": "/ / ?",
+        "action": "Искать вперёд / назад",
+        "context": "Страница"
+      },
+      {
+        "key": "n / N",
+        "action": "Следующее / предыдущее совпадение",
+        "context": "Поиск; относительно направления"
+      },
+      {
+        "key": ", / .",
+        "action": "Предыдущий / следующий буфер",
+        "context": "Просмотр"
+      },
+      {
+        "key": "D",
+        "action": "Закрыть текущий буфер",
+        "context": "Просмотр"
+      },
+      {
+        "key": "U",
+        "action": "Повторно загрузить адрес текущего буфера",
+        "context": "Страница"
+      },
+      {
+        "key": "R",
+        "action": "Заново выполнить вёрстку буфера",
+        "context": "Страница"
+      },
+      {
+        "key": "r",
+        "action": "Перерисовать экран",
+        "context": "Страница"
+      },
+      {
+        "key": "\\",
+        "action": "Переключить HTML и исходный код",
+        "context": "HTML-буфер"
+      },
+      {
+        "key": "s s",
+        "action": "Сохранить отображаемый текст",
+        "context": "Страница"
+      },
+      {
+        "key": "s S",
+        "action": "Сохранить исходный документ",
+        "context": "Страница"
+      },
+      {
+        "key": "u",
+        "action": "Показать заголовок или URL элемента",
+        "context": "Под курсором"
+      },
+      {
+        "key": "Alt+b",
+        "action": "Открыть закладки",
+        "context": "Просмотр"
+      },
+      {
+        "key": "Alt+a",
+        "action": "Добавить страницу в закладки",
+        "context": "Просмотр"
+      }
+    ],
+    "examples": [
+      {
+        "command": "cha README.html",
+        "description": "Открыть локальный HTML"
+      },
+      {
+        "command": "cha https://example.org",
+        "description": "Открыть сайт"
+      },
+      {
+        "command": "cha --dump README.html",
+        "description": "Вывести отображаемый текст без TUI"
+      },
+      {
+        "command": "cha --monochrome README.html",
+        "description": "Открыть без цветов"
+      },
+      {
+        "command": "cha --type text/plain README.txt",
+        "description": "Явно указать MIME-тип"
+      },
+      {
+        "command": "cha --help",
+        "description": "Показать аргументы"
+      }
+    ],
+    "notes": [
+      "Сочетания проверены по man cha-config установленного Chawan 0.5.0.",
+      "Префикс числа повторяет многие перемещения: например 10gg переходит к строке 10.",
+      "f по умолчанию выбирает элемент по подсказке; Enter активирует его. Не смешивать с отдельной командой toggleLinkHintsAutoClick.",
+      "Стрелки даны вместо неоднозначной записи j/k в локальном man. Полная настройка команд описана в cha-config(5), API — cha-api(7)."
+    ],
+    "sources": [
+      {
+        "title": "Локальное руководство Chawan",
+        "location": "man:cha"
+      },
+      {
+        "title": "Локальная конфигурация и клавиши Chawan",
+        "location": "man:cha-config"
+      },
+      {
+        "title": "Локальный API Chawan",
+        "location": "man:cha-api"
+      }
+    ]
+  },
+  {
+    "id": "lynx",
+    "description": "Текстовый веб-браузер для сайтов, локальных HTML и работы по SSH; навигация строится вокруг ссылок и форм.",
+    "launch_args": [
+      "/usr/share/doc/lynx/lynx_help/lynx_help_main.html"
+    ],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "lynx"
+    ],
+    "doc_files": [
+      {
+        "path": "/usr/share/doc/lynx/lynx_help/Lynx_users_guide.html",
+        "label": "Руководство пользователя"
+      },
+      {
+        "path": "/usr/share/doc/lynx/lynx_help/keystrokes/keystroke_help.html",
+        "label": "Все стандартные клавиши"
+      },
+      {
+        "path": "/usr/share/doc/lynx/lynx_help/lynx_help_main.html",
+        "label": "Начальная страница справки"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "↓ / ↑",
+        "action": "Следующая / предыдущая ссылка",
+        "context": "Страница"
+      },
+      {
+        "key": "→ / Enter",
+        "action": "Открыть выбранную ссылку",
+        "context": "Страница"
+      },
+      {
+        "key": "←",
+        "action": "Вернуться к предыдущему документу",
+        "context": "Страница"
+      },
+      {
+        "key": "Space / PageDown",
+        "action": "Следующая страница текста",
+        "context": "Страница"
+      },
+      {
+        "key": "b / PageUp",
+        "action": "Предыдущая страница текста",
+        "context": "Страница"
+      },
+      {
+        "key": "Ctrl+a / Ctrl+e",
+        "action": "Первый / последний экран",
+        "context": "Страница, вне поля ввода"
+      },
+      {
+        "key": "g",
+        "action": "Ввести URL или путь",
+        "context": "Страница"
+      },
+      {
+        "key": "G",
+        "action": "Изменить адрес текущего документа",
+        "context": "Страница"
+      },
+      {
+        "key": "/",
+        "action": "Начать поиск текста",
+        "context": "Страница"
+      },
+      {
+        "key": "n / N",
+        "action": "Следующее / предыдущее совпадение",
+        "context": "Поиск"
+      },
+      {
+        "key": "h / ?",
+        "action": "Открыть справку",
+        "context": "Страница"
+      },
+      {
+        "key": "k",
+        "action": "Показать фактические назначения клавиш",
+        "context": "Страница"
+      },
+      {
+        "key": "q / Q",
+        "action": "Выйти с подтверждением / немедленно",
+        "context": "Страница"
+      },
+      {
+        "key": "o",
+        "action": "Открыть настройки",
+        "context": "Страница"
+      },
+      {
+        "key": "l",
+        "action": "Показать список ссылок",
+        "context": "Страница"
+      },
+      {
+        "key": "Backspace",
+        "action": "Открыть список истории",
+        "context": "Страница"
+      },
+      {
+        "key": "v",
+        "action": "Открыть закладки",
+        "context": "Страница"
+      },
+      {
+        "key": "a",
+        "action": "Добавить выбранную ссылку в закладки",
+        "context": "Страница"
+      },
+      {
+        "key": "V",
+        "action": "Список посещённых ссылок",
+        "context": "Страница"
+      },
+      {
+        "key": "=",
+        "action": "Информация о документе и ссылке",
+        "context": "Страница"
+      },
+      {
+        "key": "\\",
+        "action": "Переключить исходник и отображение",
+        "context": "HTML"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Повторно загрузить документ",
+        "context": "Страница"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Перерисовать экран",
+        "context": "Страница"
+      },
+      {
+        "key": "z / Ctrl+g",
+        "action": "Прервать передачу",
+        "context": "Загрузка; Ctrl+g также отменяет ввод"
+      },
+      {
+        "key": "d",
+        "action": "Скачать выбранную ссылку",
+        "context": "Страница"
+      }
+    ],
+    "examples": [
+      {
+        "command": "lynx /usr/share/doc/lynx/lynx_help/lynx_help_main.html",
+        "description": "Открыть локальную полную справку"
+      },
+      {
+        "command": "lynx https://example.org",
+        "description": "Открыть сайт"
+      },
+      {
+        "command": "lynx -dump report.html",
+        "description": "Получить текст локального HTML"
+      },
+      {
+        "command": "lynx -source report.html",
+        "description": "Вывести исходник HTML"
+      },
+      {
+        "command": "lynx -width=120 -dump report.html",
+        "description": "Задать ширину текстового вывода"
+      },
+      {
+        "command": "lynx --help",
+        "description": "Показать аргументы запуска"
+      }
+    ],
+    "notes": [
+      "Atlas начинает с установленной локальной справки.",
+      "Однобуквенные команды относятся к странице: в текстовых полях они вводят текст.",
+      "Клавиши могут зависеть от lynx.cfg и режима vi/emacs; k показывает действующее назначение.",
+      "Сохранение, загрузка файлов и открытие внешних программ требуют явного действия пользователя."
+    ],
+    "sources": [
+      {
+        "title": "Клавиши установленного Lynx",
+        "location": "/usr/share/doc/lynx/lynx_help/keystrokes/keystroke_help.html"
+      },
+      {
+        "title": "Полное руководство Lynx",
+        "location": "/usr/share/doc/lynx/lynx_help/Lynx_users_guide.html"
+      },
+      {
+        "title": "Параметры Lynx",
+        "location": "man:lynx"
+      }
+    ]
+  },
+  {
+    "id": "posting",
+    "description": "HTTP-клиент с коллекциями запросов, редактором тела, параметрами и просмотром ответа. Эта карточка относится к установленной версии 2.11.2.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [
+      {
+        "path": "/usr/share/doc/posting/README.md",
+        "label": "Описание установленного Posting"
+      },
+      {
+        "path": "/usr/lib/python3.14/site-packages/posting/app.py",
+        "label": "Назначения клавиш установленной версии"
+      },
+      {
+        "path": "/usr/lib/python3.14/site-packages/posting/__main__.py",
+        "label": "Команды установленного CLI"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "Ctrl+j / Alt+Enter",
+        "action": "Отправить текущий HTTP-запрос",
+        "context": "Главный экран Posting 2"
+      },
+      {
+        "key": "Ctrl+t",
+        "action": "Выбрать HTTP-метод",
+        "context": "Главный экран Posting 2"
+      },
+      {
+        "key": "Ctrl+o",
+        "action": "Включить быстрые переходы к панелям",
+        "context": "Главный экран; jump mode"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Перевести фокус в URL",
+        "context": "Главный экран"
+      },
+      {
+        "key": "Ctrl+s",
+        "action": "Сохранить запрос; открытый файл будет перезаписан",
+        "context": "Главный экран"
+      },
+      {
+        "key": "Ctrl+n",
+        "action": "Создать новый запрос",
+        "context": "Главный экран Posting 2"
+      },
+      {
+        "key": "Ctrl+m",
+        "action": "Развернуть или уменьшить активную секцию",
+        "context": "Панель запроса или ответа"
+      },
+      {
+        "key": "Ctrl+h",
+        "action": "Показать или скрыть коллекцию",
+        "context": "Главный экран Posting 2"
+      },
+      {
+        "key": "Ctrl+Shift+p",
+        "action": "Искать сохранённый запрос по имени",
+        "context": "Главный экран"
+      },
+      {
+        "key": "Ctrl+p",
+        "action": "Открыть палитру команд",
+        "context": "Приложение"
+      },
+      {
+        "key": "Ctrl+c",
+        "action": "Выйти",
+        "context": "Приложение"
+      },
+      {
+        "key": "F1",
+        "action": "Контекстная справка активного виджета",
+        "context": "Приложение"
+      },
+      {
+        "key": "Ctrl+Shift+v",
+        "action": "Показать доступные переменные",
+        "context": "Приложение"
+      },
+      {
+        "key": "F3",
+        "action": "Открыть содержимое во внешнем pager",
+        "context": "Многострочное текстовое поле"
+      },
+      {
+        "key": "F4",
+        "action": "Открыть содержимое во внешнем редакторе",
+        "context": "Многострочное текстовое поле"
+      }
+    ],
+    "examples": [
+      {
+        "command": "posting",
+        "description": "Открыть коллекцию по умолчанию"
+      },
+      {
+        "command": "posting default --collection ./requests",
+        "description": "Открыть существующий каталог коллекции"
+      },
+      {
+        "command": "posting locate config",
+        "description": "Показать путь конфигурации"
+      },
+      {
+        "command": "posting locate collection",
+        "description": "Показать путь стандартной коллекции"
+      },
+      {
+        "command": "posting import ./openapi.yaml --output ./requests",
+        "description": "Создать коллекцию из локальной спецификации OpenAPI"
+      },
+      {
+        "command": "posting --help",
+        "description": "Показать команды CLI"
+      }
+    ],
+    "notes": [
+      "Клавиши взяты из установленного Python-пакета, а не из документации Posting 3.",
+      "Локальные YAML-файлы запросов сохраняются в коллекциях. Настройки, переменные и секреты пользователя при подготовке карточки не читались.",
+      "Отправка запроса может изменять серверные данные; перед Ctrl+j проверьте URL, метод и тело.",
+      "Posting 2 поддерживает пользовательские Python-скрипты запросов. Внешние editor/pager задаются настройками."
+    ],
+    "sources": [
+      {
+        "title": "Установленные назначения Posting 2",
+        "location": "/usr/lib/python3.14/site-packages/posting/app.py"
+      },
+      {
+        "title": "Установленный CLI Posting 2",
+        "location": "/usr/lib/python3.14/site-packages/posting/__main__.py"
+      },
+      {
+        "title": "Установленная документация Posting",
+        "location": "/usr/share/doc/posting/README.md"
+      },
+      {
+        "title": "Внешние инструменты Posting",
+        "location": "https://posting.sh/guide/external_tools/"
+      }
+    ]
+  },
+  {
+    "id": "vd",
+    "description": "VisiData — интерактивное исследование CSV, JSON и других таблиц: типизация, сортировка, выделение, фильтрация и экспорт.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [
+      {
+        "path": "/usr/share/doc/visidata/README.md",
+        "label": "Описание VisiData"
+      },
+      {
+        "path": "/usr/lib/python3.14/site-packages/visidata/guides/MovementGuide.md",
+        "label": "Перемещение и поиск"
+      },
+      {
+        "path": "/usr/lib/python3.14/site-packages/visidata/guides/SelectionGuide.md",
+        "label": "Выделение и фильтрация"
+      },
+      {
+        "path": "/usr/lib/python3.14/site-packages/visidata/guides/SortGuide.md",
+        "label": "Сортировка"
+      },
+      {
+        "path": "/usr/lib/python3.14/site-packages/visidata/guides/XsvGuide.md",
+        "label": "CSV и TSV"
+      },
+      {
+        "path": "/usr/lib/python3.14/site-packages/visidata/sheets.py",
+        "label": "Команды таблиц установленной версии"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "h j k l",
+        "action": "Влево / вниз / вверх / вправо",
+        "context": "Таблица"
+      },
+      {
+        "key": "q",
+        "action": "Закрыть текущий лист",
+        "context": "Любой лист"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Повторно загрузить лист",
+        "context": "Лист"
+      },
+      {
+        "key": "Ctrl+l",
+        "action": "Перерисовать экран",
+        "context": "Лист"
+      },
+      {
+        "key": "/ / ?",
+        "action": "Искать regex вперёд / назад в столбце",
+        "context": "Таблица"
+      },
+      {
+        "key": "n / N",
+        "action": "Следующее / предыдущее совпадение",
+        "context": "Поиск"
+      },
+      {
+        "key": "g/",
+        "action": "Искать regex во всех видимых столбцах",
+        "context": "Таблица"
+      },
+      {
+        "key": "t",
+        "action": "Переключить выделение строки",
+        "context": "Таблица"
+      },
+      {
+        "key": "s / u",
+        "action": "Выделить строку / снять выделение",
+        "context": "Таблица"
+      },
+      {
+        "key": "gs / gu",
+        "action": "Выделить все строки / снять всё выделение",
+        "context": "Таблица"
+      },
+      {
+        "key": "|",
+        "action": "Выделить строки по regex в столбце",
+        "context": "Таблица"
+      },
+      {
+        "key": "\\",
+        "action": "Снять выделение строк по regex",
+        "context": "Таблица"
+      },
+      {
+        "key": ",",
+        "action": "Выделить строки с таким же значением ячейки",
+        "context": "Таблица"
+      },
+      {
+        "key": "\"",
+        "action": "Открыть лист только с выделенными строками",
+        "context": "Таблица; общий источник данных"
+      },
+      {
+        "key": "[ / ]",
+        "action": "Сортировать по столбцу по возрастанию / убыванию",
+        "context": "Таблица"
+      },
+      {
+        "key": "g[ / g]",
+        "action": "Сортировать по ключевым столбцам",
+        "context": "Таблица"
+      },
+      {
+        "key": "!",
+        "action": "Переключить признак ключевого столбца",
+        "context": "Столбец"
+      },
+      {
+        "key": "#",
+        "action": "Назначить целочисленный тип",
+        "context": "Столбец"
+      },
+      {
+        "key": "%",
+        "action": "Назначить вещественный тип",
+        "context": "Столбец"
+      },
+      {
+        "key": "~",
+        "action": "Назначить строковый тип",
+        "context": "Столбец"
+      },
+      {
+        "key": "e",
+        "action": "Изменить текущую ячейку",
+        "context": "Таблица"
+      },
+      {
+        "key": "a",
+        "action": "Добавить пустую строку",
+        "context": "Таблица"
+      },
+      {
+        "key": "Ctrl+s",
+        "action": "Сохранить лист в файл выбранного формата",
+        "context": "Лист"
+      },
+      {
+        "key": "zCtrl+h",
+        "action": "Показать команды и клавиши текущего листа",
+        "context": "Любой лист; последовательность z, затем Ctrl+h"
+      },
+      {
+        "key": "gzCtrl+h",
+        "action": "Показать команды всех типов листов",
+        "context": "Любой лист; g, z, затем Ctrl+h"
+      }
+    ],
+    "examples": [
+      {
+        "command": "vd data.csv",
+        "description": "Открыть CSV"
+      },
+      {
+        "command": "vd data.json",
+        "description": "Открыть JSON"
+      },
+      {
+        "command": "vd -f csv data.txt",
+        "description": "Явно выбрать загрузчик CSV"
+      },
+      {
+        "command": "vd --csv-delimiter=\";\" data.csv",
+        "description": "Прочитать CSV с разделителем точка с запятой"
+      },
+      {
+        "command": "vd ./",
+        "description": "Исследовать каталог как таблицу"
+      },
+      {
+        "command": "vd --help",
+        "description": "Показать краткую CLI-справку"
+      }
+    ],
+    "notes": [
+      "Команды и назначения проверены по установленному пакету VisiData 3.4.",
+      "g и z — последовательные префиксы, а не одновременное нажатие.",
+      "Изменения не равны сохранению; Ctrl+s спрашивает путь. Некоторые источники поддерживают отдельный commit обратно в источник.",
+      "Тип столбца влияет на сравнение и сортировку. Начните с # или % для чисел.",
+      "В установленном пакете нет man vd; подробные команды доступны через встроенный список и локальные руководства. Полная внешняя ссылка: https://visidata.org/man."
+    ],
+    "sources": [
+      {
+        "title": "Команды листов и типов",
+        "location": "/usr/lib/python3.14/site-packages/visidata/sheets.py"
+      },
+      {
+        "title": "Поиск",
+        "location": "/usr/lib/python3.14/site-packages/visidata/search.py"
+      },
+      {
+        "title": "Выделение",
+        "location": "/usr/lib/python3.14/site-packages/visidata/selection.py"
+      },
+      {
+        "title": "Сортировка",
+        "location": "/usr/lib/python3.14/site-packages/visidata/sort.py"
+      },
+      {
+        "title": "Сохранение и справка",
+        "location": "/usr/lib/python3.14/site-packages/visidata/help.py"
+      },
+      {
+        "title": "Перемещение VisiData",
+        "location": "/usr/lib/python3.14/site-packages/visidata/movement.py"
+      },
+      {
+        "title": "Сохранение VisiData",
+        "location": "/usr/lib/python3.14/site-packages/visidata/save.py"
+      },
+      {
+        "title": "Руководство VisiData",
+        "location": "/usr/share/doc/visidata/README.md"
+      }
+    ]
+  },
+  {
+    "id": "presenterm",
+    "description": "Показывает Markdown как презентацию прямо в терминале: слайды, паузы, подсветка кода, изображения и экспорт.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [
+      {
+        "path": "/usr/share/doc/presenterm/README.md",
+        "label": "Обзор и ссылки на полное руководство"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "Space / j / l / → / ↓",
+        "action": "Следующий шаг презентации",
+        "context": "Просмотр"
+      },
+      {
+        "key": "PageDown",
+        "action": "Следующий шаг презентации",
+        "context": "Просмотр"
+      },
+      {
+        "key": "h / k / ← / ↑",
+        "action": "Предыдущий шаг",
+        "context": "Просмотр"
+      },
+      {
+        "key": "PageUp",
+        "action": "Предыдущий шаг",
+        "context": "Просмотр"
+      },
+      {
+        "key": "n",
+        "action": "Сразу следующий слайд, пропуская промежуточные шаги",
+        "context": "Просмотр"
+      },
+      {
+        "key": "p",
+        "action": "Сразу предыдущий слайд",
+        "context": "Просмотр"
+      },
+      {
+        "key": "gg",
+        "action": "Первый слайд",
+        "context": "Просмотр"
+      },
+      {
+        "key": "G",
+        "action": "Последний слайд",
+        "context": "Просмотр"
+      },
+      {
+        "key": "число G",
+        "action": "Перейти к номеру слайда",
+        "context": "Просмотр; последовательность, например 3G"
+      },
+      {
+        "key": "Ctrl+r",
+        "action": "Перезагрузить презентацию",
+        "context": "Просмотр"
+      },
+      {
+        "key": "Ctrl+p",
+        "action": "Открыть или закрыть указатель слайдов",
+        "context": "Просмотр"
+      },
+      {
+        "key": "?",
+        "action": "Показать назначения клавиш",
+        "context": "Просмотр"
+      },
+      {
+        "key": "Esc",
+        "action": "Закрыть модальное окно",
+        "context": "Указатель слайдов или справка"
+      },
+      {
+        "key": "Ctrl+e",
+        "action": "Выполнить фрагмент кода",
+        "context": "Только при разрешённом выполнении кода"
+      },
+      {
+        "key": "q / Ctrl+c",
+        "action": "Выйти",
+        "context": "Презентация"
+      },
+      {
+        "key": "Ctrl+z",
+        "action": "Приостановить процесс",
+        "context": "Терминал с job control"
+      }
+    ],
+    "examples": [
+      {
+        "command": "presenterm slides.md",
+        "description": "Открыть Markdown-презентацию"
+      },
+      {
+        "command": "presenterm --present slides.md",
+        "description": "Запустить режим выступления"
+      },
+      {
+        "command": "presenterm --list-themes",
+        "description": "Показать встроенные темы"
+      },
+      {
+        "command": "presenterm --theme dark slides.md",
+        "description": "Выбрать тему dark"
+      },
+      {
+        "command": "presenterm --validate-overflows slides.md",
+        "description": "Проверить выход содержимого за границы"
+      },
+      {
+        "command": "presenterm --export-pdf --output slides.pdf slides.md",
+        "description": "Экспортировать в PDF"
+      },
+      {
+        "command": "presenterm --export-html slides.md",
+        "description": "Экспортировать в HTML"
+      },
+      {
+        "command": "presenterm --help",
+        "description": "Показать все аргументы"
+      }
+    ],
+    "notes": [
+      "Перед запуском из Atlas добавьте путь к Markdown-файлу.",
+      "Сочетания соответствуют стандартной секции bindings; конфигурация пользователя может их заменить.",
+      "Не включайте -x или -X для недоверенной презентации: эти флаги разрешают исполнение её кода.",
+      "Экспорт и отдельные виды графики могут требовать внешних инструментов; подробности приведены в официальном руководстве."
+    ],
+    "sources": [
+      {
+        "title": "Стандартные клавиши presenterm",
+        "location": "https://mfontanini.github.io/presenterm/configuration/settings.html"
+      },
+      {
+        "title": "Документация установленного presenterm",
+        "location": "/usr/share/doc/presenterm/README.md"
+      },
+      {
+        "title": "Аргументы presenterm 0.16.1",
+        "location": "/usr/bin/presenterm --help"
+      }
+    ]
+  },
+  {
+    "id": "mdv",
+    "description": "Просмотрщик Markdown thgossler/mdv 0.8.5: терминальный интерфейс, навигатор документов, поиск и консольный вывод.",
+    "launch_args": [
+      "--tui",
+      "."
+    ],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "q / Ctrl+c",
+        "action": "Выйти",
+        "context": "Обычный просмотр; не ввод фильтра ссылок"
+      },
+      {
+        "key": "Tab",
+        "action": "Открыть навигатор или переключить фокус",
+        "context": "Документ / навигатор"
+      },
+      {
+        "key": "Ctrl+b",
+        "action": "Показать или скрыть навигатор",
+        "context": "Обычный просмотр"
+      },
+      {
+        "key": "g / Home",
+        "action": "Начало документа",
+        "context": "Документ"
+      },
+      {
+        "key": "G / End",
+        "action": "Конец документа",
+        "context": "Документ"
+      },
+      {
+        "key": "b / Backspace / ← / Alt+←",
+        "action": "Назад по документам",
+        "context": "Документ"
+      },
+      {
+        "key": "f / → / Alt+→",
+        "action": "Вперёд по документам",
+        "context": "Документ"
+      },
+      {
+        "key": "r",
+        "action": "Пересканировать документы и перезагрузить текущий",
+        "context": "Документ"
+      },
+      {
+        "key": "w",
+        "action": "Переключить наблюдение за изменениями",
+        "context": "Документ"
+      },
+      {
+        "key": "Enter / l",
+        "action": "Открыть выбор ссылок",
+        "context": "Документ"
+      },
+      {
+        "key": "Enter / → / l",
+        "action": "Открыть выбранный документ",
+        "context": "Навигатор"
+      },
+      {
+        "key": "t",
+        "action": "Переключить подписи: имя файла / заголовок",
+        "context": "Документ или навигатор"
+      },
+      {
+        "key": "m",
+        "action": "Развернуть метаданные frontmatter",
+        "context": "Документ"
+      },
+      {
+        "key": "x",
+        "action": "Переключить общую настройку расширенного синтаксиса",
+        "context": "Документ; влияет на GUI"
+      },
+      {
+        "key": "i",
+        "action": "Переключить удалённые изображения",
+        "context": "Документ; может разрешить сеть"
+      },
+      {
+        "key": "/",
+        "action": "Поиск внутри документа",
+        "context": "Документ"
+      },
+      {
+        "key": "//",
+        "action": "Поиск содержимого всех документов",
+        "context": "Документ или навигатор"
+      },
+      {
+        "key": "/",
+        "action": "Фильтровать список по имени",
+        "context": "Навигатор"
+      },
+      {
+        "key": "Enter / ↓",
+        "action": "Следующее совпадение",
+        "context": "Строка поиска документа"
+      },
+      {
+        "key": "↑",
+        "action": "Предыдущее совпадение",
+        "context": "Строка поиска документа"
+      },
+      {
+        "key": "Esc",
+        "action": "Отменить поиск или закрыть выбор ссылок",
+        "context": "Строка поиска / выбор ссылок"
+      }
+    ],
+    "examples": [
+      {
+        "command": "mdv --tui README.md",
+        "description": "Открыть файл в терминале"
+      },
+      {
+        "command": "mdv --tui ./docs",
+        "description": "Открыть папку документов"
+      },
+      {
+        "command": "mdv --tui --sidepanel README.md",
+        "description": "Сразу показать навигатор"
+      },
+      {
+        "command": "mdv --console README.md",
+        "description": "Напечатать форматированный Markdown"
+      },
+      {
+        "command": "mdv --console --no-color --max-width 100 README.md",
+        "description": "Ограничить ширину и убрать ANSI-цвета"
+      },
+      {
+        "command": "mdv --tui --images off README.md",
+        "description": "Открыть без изображений"
+      },
+      {
+        "command": "mdv --pdf report.pdf README.md",
+        "description": "Экспортировать PDF"
+      },
+      {
+        "command": "mdv --help",
+        "description": "Показать параметры"
+      }
+    ],
+    "notes": [
+      "Это thgossler/mdv, установленный в ~/.local/bin/mdv; одноимённые программы имеют другие параметры.",
+      "Atlas передаёт --tui и текущую папку. Клавиши проверены по исходнику тега v0.8.5.",
+      "Просмотрщик может загружать удалённые ресурсы в зависимости от настроек; --images off отключает показ изображений.",
+      "Вложенный tmux может перехватывать Ctrl+b: используйте Tab либо передачу префикса.",
+      "Расширенный синтаксис x меняет общую настройку, но терминальный рендерер его не отображает."
+    ],
+    "sources": [
+      {
+        "title": "Исходник обработки клавиш mdv v0.8.5",
+        "location": "https://raw.githubusercontent.com/thgossler/mdv/v0.8.5/internal/tui/model.go"
+      },
+      {
+        "title": "Руководство mdv v0.8.5",
+        "location": "https://raw.githubusercontent.com/thgossler/mdv/v0.8.5/README.md"
+      },
+      {
+        "title": "Справка установленного mdv",
+        "location": "~/.local/bin/mdv --help"
+      }
+    ]
+  },
+  {
+    "id": "cliamp",
+    "description": "Музыкальный проигрыватель в терминале с локальными плейлистами, очередью, эквалайзером и визуализатором.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "Space",
+        "action": "Пауза / воспроизведение",
+        "context": "Плеер"
+      },
+      {
+        "key": "s",
+        "action": "Остановить",
+        "context": "Плеер"
+      },
+      {
+        "key": "> / .",
+        "action": "Следующий трек",
+        "context": "Плеер"
+      },
+      {
+        "key": "< / ,",
+        "action": "Предыдущий трек",
+        "context": "Плеер"
+      },
+      {
+        "key": "← / →",
+        "action": "Перемотать на −5 / +5 секунд",
+        "context": "Плеер, не ввод текста"
+      },
+      {
+        "key": "Shift+← / Shift+→",
+        "action": "Перемотать на −30 / +30 секунд",
+        "context": "Плеер; интервал настраивается"
+      },
+      {
+        "key": "+ / -",
+        "action": "Изменить громкость",
+        "context": "Плеер"
+      },
+      {
+        "key": "] / [",
+        "action": "Увеличить / уменьшить скорость на 0,25",
+        "context": "Плеер, не синхронный текст песни"
+      },
+      {
+        "key": "m",
+        "action": "Переключить моно",
+        "context": "Плеер"
+      },
+      {
+        "key": "Ctrl+j",
+        "action": "Перейти к заданному времени",
+        "context": "Плеер"
+      },
+      {
+        "key": "Tab / Shift+Tab",
+        "action": "Следующий / предыдущий доступный элемент управления",
+        "context": "Плеер"
+      },
+      {
+        "key": "j / k / ↓ / ↑",
+        "action": "Выбрать трек",
+        "context": "Плейлист"
+      },
+      {
+        "key": "PageUp / PageDown",
+        "action": "Прокрутить список на страницу",
+        "context": "Плейлист или файлы"
+      },
+      {
+        "key": "Home / End",
+        "action": "Начало / конец списка",
+        "context": "Плейлист или файлы"
+      },
+      {
+        "key": "Enter",
+        "action": "Воспроизвести выбранный трек",
+        "context": "Плейлист"
+      },
+      {
+        "key": "/",
+        "action": "Искать в плейлисте",
+        "context": "Плейлист"
+      },
+      {
+        "key": "Ctrl+x",
+        "action": "Развернуть / свернуть плейлист",
+        "context": "Плеер"
+      },
+      {
+        "key": "o",
+        "action": "Открыть файловый браузер",
+        "context": "Плеер"
+      },
+      {
+        "key": "e",
+        "action": "Следующий пресет эквалайзера",
+        "context": "Плеер"
+      },
+      {
+        "key": "t",
+        "action": "Выбрать тему",
+        "context": "Плеер"
+      },
+      {
+        "key": "v",
+        "action": "Следующий визуализатор",
+        "context": "Плеер"
+      },
+      {
+        "key": "r",
+        "action": "Переключить режим повтора",
+        "context": "Плеер, текст песни закрыт"
+      },
+      {
+        "key": "z",
+        "action": "Переключить случайный порядок",
+        "context": "Плеер"
+      },
+      {
+        "key": "? / Ctrl+k",
+        "action": "Открыть карту клавиш",
+        "context": "? в плеере; Ctrl+k в любом режиме"
+      },
+      {
+        "key": "q / Ctrl+c",
+        "action": "Выйти",
+        "context": "Основной плеер"
+      }
+    ],
+    "examples": [
+      {
+        "command": "cliamp",
+        "description": "Открыть проигрыватель"
+      },
+      {
+        "command": "cliamp --vol -15",
+        "description": "Задать стартовую громкость −15 dB"
+      },
+      {
+        "command": "cliamp --shuffle --repeat all",
+        "description": "Случайный порядок и повтор всех треков"
+      },
+      {
+        "command": "cliamp --simplified",
+        "description": "Открыть упрощённое представление"
+      },
+      {
+        "command": "cliamp --no-auto-play",
+        "description": "Запустить без немедленного воспроизведения"
+      },
+      {
+        "command": "cliamp status",
+        "description": "Получить состояние запущенного плеера"
+      },
+      {
+        "command": "cliamp pause",
+        "description": "Приостановить запущенный плеер через IPC"
+      },
+      {
+        "command": "cliamp --help",
+        "description": "Показать команды и параметры"
+      }
+    ],
+    "notes": [
+      "Клавиши проверены по документации тега v2.3.0, совпадающего с установленной версией.",
+      "Контекст важен: буквы и стрелки в настройках, провайдерах и текстовых полях выполняют другие действия.",
+      "Онлайн-провайдеры требуют отдельных настроек; локальная музыка доступна без подключения аккаунта.",
+      "Параметры позволяют отключить автоматический старт звука; команды status и pause обращаются к работающему экземпляру."
+    ],
+    "sources": [
+      {
+        "title": "Полные клавиши cliamp v2.3.0",
+        "location": "https://raw.githubusercontent.com/bjarneo/cliamp/v2.3.0/docs/keybindings.md"
+      },
+      {
+        "title": "Справка установленного cliamp",
+        "location": "/usr/bin/cliamp --help"
+      }
+    ]
+  },
+  {
+    "id": "tmux",
+    "description": "Мультиплексор терминала: постоянные сессии, окна, разделённые панели и копирование из scrollback. Карточка учитывает локальный tmux.conf.",
+    "launch_args": [],
+    "help_args": [
+      "-h"
+    ],
+    "man_pages": [
+      "tmux"
+    ],
+    "doc_files": [
+      {
+        "path": "~/.config/tmux/tmux.conf",
+        "label": "Пользовательские клавиши и настройки"
+      }
+    ],
+    "shortcuts": [
+      {
+        "key": "Ctrl+Space / Ctrl+b",
+        "action": "Ввести префикс команды",
+        "context": "Локально: основной / запасной префикс"
+      },
+      {
+        "key": "Prefix c",
+        "action": "Создать окно с текущим рабочим каталогом",
+        "context": "Локальное назначение"
+      },
+      {
+        "key": "Prefix h",
+        "action": "Разделить панель сверху и снизу: split-window -v",
+        "context": "Локальное назначение"
+      },
+      {
+        "key": "Prefix v",
+        "action": "Разделить панель слева и справа: split-window -h",
+        "context": "Локальное назначение"
+      },
+      {
+        "key": "Alt+Enter / Alt+Shift+Enter",
+        "action": "Разделить сверху-снизу / слева-справа",
+        "context": "Локально, без префикса"
+      },
+      {
+        "key": "Ctrl+Alt+←↑↓→",
+        "action": "Перейти к соседней панели",
+        "context": "Локально, без префикса"
+      },
+      {
+        "key": "Ctrl+Alt+Shift+←↑↓→",
+        "action": "Изменить размер панели на 5 ячеек",
+        "context": "Локально, без префикса"
+      },
+      {
+        "key": "Prefix r",
+        "action": "Переименовать окно",
+        "context": "Локальное назначение; стандартное r заменено"
+      },
+      {
+        "key": "Prefix R",
+        "action": "Переименовать сессию",
+        "context": "Локальное назначение"
+      },
+      {
+        "key": "Prefix C",
+        "action": "Создать сессию",
+        "context": "Локальное назначение"
+      },
+      {
+        "key": "Prefix k",
+        "action": "Закрыть окно",
+        "context": "Локальное назначение; завершает процессы окна"
+      },
+      {
+        "key": "Prefix K",
+        "action": "Закрыть сессию",
+        "context": "Локальное назначение; завершает её процессы"
+      },
+      {
+        "key": "Prefix x / Alt+Esc",
+        "action": "Закрыть панель",
+        "context": "Локально; без стандартного подтверждения"
+      },
+      {
+        "key": "Alt+1…9",
+        "action": "Выбрать окно 1…9",
+        "context": "Локально, без префикса"
+      },
+      {
+        "key": "Alt+← / Alt+→",
+        "action": "Предыдущее / следующее окно",
+        "context": "Локально, без префикса"
+      },
+      {
+        "key": "Alt+Shift+← / Alt+Shift+→",
+        "action": "Переставить окно влево / вправо",
+        "context": "Локально, без префикса"
+      },
+      {
+        "key": "Prefix P / Prefix N",
+        "action": "Предыдущая / следующая сессия",
+        "context": "Локальное назначение"
+      },
+      {
+        "key": "Alt+↑ / Alt+↓",
+        "action": "Предыдущая / следующая сессия",
+        "context": "Локально, без префикса"
+      },
+      {
+        "key": "Prefix q",
+        "action": "Перечитать ~/.config/tmux/tmux.conf",
+        "context": "Локальное назначение; стандартное q заменено"
+      },
+      {
+        "key": "Prefix ?",
+        "action": "Открыть локальную таблицу клавиш во всплывающем окне",
+        "context": "Локально; нужен omarchy-menu-tmux-keybindings"
+      },
+      {
+        "key": "Prefix d",
+        "action": "Отсоединиться, оставив сессию работать",
+        "context": "Стандартное назначение"
+      },
+      {
+        "key": "Prefix z",
+        "action": "Развернуть / восстановить панель",
+        "context": "Стандартное назначение"
+      },
+      {
+        "key": "Prefix [",
+        "action": "Открыть историю и режим копирования",
+        "context": "Стандартное назначение; локально vi"
+      },
+      {
+        "key": "v / y",
+        "action": "Начать выделение / скопировать и выйти",
+        "context": "Локально в copy-mode-vi; без префикса"
+      },
+      {
+        "key": "Prefix ]",
+        "action": "Вставить последний буфер tmux",
+        "context": "Стандартное назначение"
+      }
+    ],
+    "examples": [
+      {
+        "command": "tmux new-session -A -s work",
+        "description": "Создать work или подключиться к существующей"
+      },
+      {
+        "command": "tmux list-sessions",
+        "description": "Показать сессии"
+      },
+      {
+        "command": "tmux attach-session -t work",
+        "description": "Подключиться к work"
+      },
+      {
+        "command": "tmux new-window -n logs",
+        "description": "Создать окно logs"
+      },
+      {
+        "command": "tmux split-window -h",
+        "description": "Разделить текущую панель слева и справа"
+      },
+      {
+        "command": "tmux list-keys",
+        "description": "Показать фактически загруженные назначения"
+      },
+      {
+        "command": "tmux list-keys -T copy-mode-vi",
+        "description": "Показать клавиши vi-копирования"
+      },
+      {
+        "command": "tmux source-file ~/.config/tmux/tmux.conf",
+        "description": "Применить конфигурацию к запущенному серверу"
+      }
+    ],
+    "notes": [
+      "Prefix означает: нажать Ctrl+Space (либо запасной Ctrl+b), отпустить, затем нажать указанную клавишу.",
+      "Конфигурация проверена на диске; работающий сервер мог загрузить другую редакцию. Проверка: tmux list-keys.",
+      "Локально h создаёт панели сверху-снизу, v — слева-справа. Это названия клавиш, а не флаги split-window.",
+      "Нумерация окон и панелей начинается с 1; включены мышь и режим копирования vi.",
+      "Локальные x, k, K и Alt+Esc закрывают процессы без стандартного диалога подтверждения. Отсоединение Prefix d сохраняет их.",
+      "Ctrl+Space иногда приходит как Ctrl+@; если терминал его перехватывает, используйте Ctrl+b.",
+      "Если вложенное приложение использует Ctrl+b, tmux может перехватить его как запасной префикс. Команда tmux send-keys C-b передаёт его панели; Prefix Ctrl+Space отправляет основной Ctrl+Space."
+    ],
+    "sources": [
+      {
+        "title": "Локальная пользовательская конфигурация",
+        "location": "~/.config/tmux/tmux.conf"
+      },
+      {
+        "title": "Полное руководство tmux 3.8",
+        "location": "man:tmux"
+      }
+    ]
+  },
+  {
+    "id": "herdr",
+    "description": "Менеджер терминальных рабочих пространств: вкладки, панели, постоянные сессии и состояние запущенных процессов.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "Ctrl+b",
+        "action": "Ввести префикс",
+        "context": "Стандарт Herdr, затем следующая клавиша"
+      },
+      {
+        "key": "Prefix ?",
+        "action": "Показать активные назначения",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix c",
+        "action": "Создать вкладку",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix v",
+        "action": "Разделить вправо",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix -",
+        "action": "Разделить вниз",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix h/j/k/l",
+        "action": "Перейти влево / вниз / вверх / вправо",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix w",
+        "action": "Открыть навигацию по рабочим пространствам",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix q",
+        "action": "Отсоединиться, сохранив процессы",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix z",
+        "action": "Развернуть текущую панель",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix x",
+        "action": "Закрыть панель",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix H/J/K/L",
+        "action": "Поменять панели местами",
+        "context": "Основной интерфейс; Shift+буква"
+      },
+      {
+        "key": "Prefix r",
+        "action": "Включить изменение размера",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix [",
+        "action": "Включить копирование",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix n / Prefix p",
+        "action": "Следующая / предыдущая вкладка",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix 1…9",
+        "action": "Выбрать вкладку",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix T",
+        "action": "Переименовать вкладку",
+        "context": "Основной интерфейс; Shift+t"
+      },
+      {
+        "key": "Prefix X",
+        "action": "Закрыть вкладку",
+        "context": "Основной интерфейс; Shift+x"
+      },
+      {
+        "key": "Prefix N",
+        "action": "Создать рабочее пространство",
+        "context": "Основной интерфейс; Shift+n"
+      },
+      {
+        "key": "Prefix W",
+        "action": "Переименовать рабочее пространство",
+        "context": "Основной интерфейс; Shift+w"
+      },
+      {
+        "key": "Prefix D",
+        "action": "Закрыть рабочее пространство",
+        "context": "Основной интерфейс; Shift+d"
+      },
+      {
+        "key": "Prefix g",
+        "action": "Открыть быстрый переход",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "Prefix b",
+        "action": "Переключить боковую панель",
+        "context": "Основной интерфейс"
+      },
+      {
+        "key": "v / Space",
+        "action": "Начать выделение",
+        "context": "Режим копирования"
+      },
+      {
+        "key": "y / Enter",
+        "action": "Скопировать выделение",
+        "context": "Режим копирования"
+      },
+      {
+        "key": "q / Esc",
+        "action": "Выйти без копирования; Esc сначала сбрасывает выделение",
+        "context": "Режим копирования"
+      }
+    ],
+    "examples": [
+      {
+        "command": "herdr",
+        "description": "Запустить или подключить постоянную сессию"
+      },
+      {
+        "command": "herdr --session demo",
+        "description": "Создать или подключить именованную сессию demo"
+      },
+      {
+        "command": "herdr session attach demo",
+        "description": "Подключиться к demo"
+      },
+      {
+        "command": "herdr status",
+        "description": "Показать состояние локального клиента и сервера"
+      },
+      {
+        "command": "herdr completion zsh",
+        "description": "Вывести дополнения для zsh"
+      },
+      {
+        "command": "herdr --help",
+        "description": "Показать команды CLI"
+      }
+    ],
+    "notes": [
+      "Prefix означает Ctrl+b, затем отдельную клавишу. Переназначения пользователя не читались; Prefix ? показывает активные.",
+      "Клавиши сверены с документацией 0.9.0, включённой в тег установленной 0.9.1.",
+      "Отсоединение сохраняет процессы при работающем сервере. Перезагрузка машины не сохраняет сами процессы.",
+      "Если Herdr запущен внутри tmux, внешний Ctrl+b может перехватываться; используйте локальный префикс tmux Ctrl+Space и передачу клавиши.",
+      "Команды удалённых машин, обновления и управляющего API в ходе подготовки карточки не выполнялись."
+    ],
+    "sources": [
+      {
+        "title": "Клавиши Herdr из тега v0.9.1",
+        "location": "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.1/docs/versions/0.9.0/website/src/content/docs/keyboard.mdx"
+      },
+      {
+        "title": "Документация Herdr",
+        "location": "https://herdr.dev/docs/keyboard/"
+      },
+      {
+        "title": "CLI установленного Herdr",
+        "location": "/usr/bin/herdr --help"
+      }
+    ]
+  },
+  {
+    "id": "nmtui",
+    "description": "Текстовая оболочка NetworkManager для редактирования подключений, их активации и изменения имени компьютера.",
+    "launch_args": [],
+    "help_args": [
+      "--help"
+    ],
+    "man_pages": [
+      "nmtui",
+      "nmtui-edit",
+      "nmtui-connect",
+      "nmtui-hostname"
+    ],
+    "doc_files": [],
+    "shortcuts": [
+      {
+        "key": "↑ / ↓ / ← / →",
+        "action": "Перемещаться по пунктам и элементам формы",
+        "context": "Меню и формы"
+      },
+      {
+        "key": "Tab",
+        "action": "Следующий элемент формы",
+        "context": "Меню и формы"
+      },
+      {
+        "key": "Shift+Tab",
+        "action": "Предыдущий элемент формы",
+        "context": "Меню и формы"
+      },
+      {
+        "key": "Enter",
+        "action": "Выбрать пункт или нажать кнопку",
+        "context": "Меню и формы"
+      },
+      {
+        "key": "Space",
+        "action": "Переключить флажок",
+        "context": "Поле с флажком"
+      },
+      {
+        "key": "Esc",
+        "action": "Закрыть текущую форму или вернуться",
+        "context": "Формы, поддерживающие отмену"
+      }
+    ],
+    "examples": [
+      {
+        "command": "nmtui",
+        "description": "Открыть выбор действия"
+      },
+      {
+        "command": "nmtui edit",
+        "description": "Открыть список профилей для редактирования"
+      },
+      {
+        "command": "nmtui edit \"Wired connection 1\"",
+        "description": "Редактировать профиль по имени"
+      },
+      {
+        "command": "nmtui connect",
+        "description": "Открыть список подключений для активации или отключения"
+      },
+      {
+        "command": "nmtui hostname",
+        "description": "Открыть изменение имени компьютера"
+      },
+      {
+        "command": "nmtui --help",
+        "description": "Показать справку по запуску"
+      }
+    ],
+    "notes": [
+      "У nmtui небольшой набор документированных клавиш; функциональные команды представлены кнопками, а не отдельными хоткеями.",
+      "Сохранение профиля и его активация — разные действия; список connect позволяет также отключить активное соединение.",
+      "Изменение активного сетевого подключения может оборвать SSH. Настройки применяются NetworkManager после подтверждения действия.",
+      "Некоторые операции требуют системной авторизации. Просмотр QR-кода Wi-Fi может показать пароль; эта функция не вызывается при просмотре карточки."
+    ],
+    "sources": [
+      {
+        "title": "Локальная справка nmtui",
+        "location": "man:nmtui"
+      },
+      {
+        "title": "Официальное руководство NetworkManager",
+        "location": "https://networkmanager.pages.freedesktop.org/NetworkManager/NetworkManager/nmtui.html"
+      },
+      {
+        "title": "Навигация nmtui в документации Red Hat",
+        "location": "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/networking_guide/sec-configure_802_1q_vlan_tagging_using_the_text_user_interface_nmtui"
+      },
+      {
+        "title": "Клавиша отмены в официальном исходнике NetworkManager",
+        "location": "https://raw.githubusercontent.com/NetworkManager/NetworkManager/main/src/libnmt-newt/nmt-newt-form.c"
+      }
+    ]
+  }
+]

@@ -1,0 +1,335 @@
+[
+  {
+    "group": "Редактор",
+    "name": "Neovim",
+    "command": "nvim",
+    "version": "0.12.6-1",
+    "source": "neovim",
+    "executable": "/usr/bin/nvim",
+    "id": "nvim"
+  },
+  {
+    "group": "Файлы",
+    "name": "Yazi",
+    "command": "yazi",
+    "version": "26.9.1-2",
+    "source": "yazi",
+    "executable": "/usr/bin/yazi",
+    "id": "yazi"
+  },
+  {
+    "group": "Git",
+    "name": "Lazygit",
+    "command": "lazygit",
+    "version": "0.66.2-1",
+    "source": "lazygit",
+    "executable": "/usr/bin/lazygit",
+    "id": "lazygit"
+  },
+  {
+    "group": "Docker",
+    "name": "Lazydocker",
+    "command": "lazydocker",
+    "version": "0.25.2-1",
+    "source": "lazydocker",
+    "executable": "/usr/bin/lazydocker",
+    "id": "lazydocker"
+  },
+  {
+    "group": "Kubernetes",
+    "name": "K9s",
+    "command": "k9s",
+    "version": "0.51.0",
+    "source": "mise:k9s",
+    "executable": "~/.local/share/mise/installs/k9s/latest/k9s",
+    "id": "k9s"
+  },
+  {
+    "group": "Мониторинг",
+    "name": "btop",
+    "command": "btop",
+    "version": "1.4.7-1",
+    "source": "btop",
+    "executable": "/usr/bin/btop",
+    "id": "btop"
+  },
+  {
+    "group": "Мониторинг",
+    "name": "top",
+    "command": "top",
+    "version": "4.0.7-1",
+    "source": "procps-ng",
+    "executable": "/usr/bin/top",
+    "id": "top"
+  },
+  {
+    "group": "Мониторинг",
+    "name": "systemd-cgtop",
+    "command": "systemd-cgtop",
+    "version": "262.1-1",
+    "source": "systemd",
+    "executable": "/usr/bin/systemd-cgtop",
+    "id": "systemd-cgtop"
+  },
+  {
+    "group": "Место на диске",
+    "name": "dua",
+    "command": "dua i",
+    "version": "2.46.0-1",
+    "source": "dua-cli",
+    "executable": "/usr/bin/dua",
+    "id": "dua"
+  },
+  {
+    "group": "Мессенджер",
+    "name": "nchat",
+    "command": "nchat",
+    "version": "5.18.20-1",
+    "source": "nchat-bin",
+    "executable": "/usr/bin/nchat",
+    "id": "nchat"
+  },
+  {
+    "group": "RSS/Atom",
+    "name": "Newsboat",
+    "command": "newsboat",
+    "version": "2.45-1",
+    "source": "newsboat",
+    "executable": "/usr/bin/newsboat",
+    "id": "newsboat"
+  },
+  {
+    "group": "Браузер",
+    "name": "Browsh",
+    "command": "browsh",
+    "version": "1.8.2-1",
+    "source": "browsh-bin",
+    "executable": "/usr/bin/browsh",
+    "id": "browsh"
+  },
+  {
+    "group": "Браузер",
+    "name": "Chawan",
+    "command": "cha",
+    "version": "0.5.0-1",
+    "source": "chawan",
+    "executable": "/usr/bin/cha",
+    "id": "cha"
+  },
+  {
+    "group": "Браузер",
+    "name": "Lynx",
+    "command": "lynx",
+    "version": "2.9.3-1",
+    "source": "lynx",
+    "executable": "/usr/bin/lynx",
+    "id": "lynx"
+  },
+  {
+    "group": "HTTP-клиент",
+    "name": "Posting",
+    "command": "posting",
+    "version": "2.11.2-1",
+    "source": "posting",
+    "executable": "/usr/bin/posting",
+    "id": "posting"
+  },
+  {
+    "group": "Таблицы и данные",
+    "name": "VisiData",
+    "command": "vd",
+    "version": "3.4-1",
+    "source": "visidata",
+    "executable": "/usr/bin/vd",
+    "id": "vd"
+  },
+  {
+    "group": "Презентации Markdown",
+    "name": "Presenterm",
+    "command": "presenterm файл.md",
+    "version": "0.16.1-1",
+    "source": "presenterm",
+    "executable": "/usr/bin/presenterm",
+    "id": "presenterm"
+  },
+  {
+    "group": "Просмотр Markdown",
+    "name": "mdv",
+    "command": "mdv --tui файл.md",
+    "version": "0.8.5",
+    "source": "local:0.8.5",
+    "executable": "~/.local/bin/mdv",
+    "id": "mdv"
+  },
+  {
+    "group": "Музыка",
+    "name": "cliamp",
+    "command": "cliamp",
+    "version": "2.3.0-3",
+    "source": "cliamp",
+    "executable": "/usr/bin/cliamp",
+    "id": "cliamp"
+  },
+  {
+    "group": "Рабочие пространства",
+    "name": "tmux",
+    "command": "tmux",
+    "version": "3.8-1",
+    "source": "tmux",
+    "executable": "/usr/bin/tmux",
+    "id": "tmux"
+  },
+  {
+    "group": "Рабочие пространства агентов",
+    "name": "Herdr",
+    "command": "herdr",
+    "version": "0.9.1-2",
+    "source": "herdr",
+    "executable": "/usr/bin/herdr",
+    "id": "herdr"
+  },
+  {
+    "group": "Сеть",
+    "name": "NetworkManager TUI",
+    "command": "nmtui",
+    "version": "1.58.1-2",
+    "source": "networkmanager",
+    "executable": "/usr/bin/nmtui",
+    "id": "nmtui"
+  },
+  {
+    "group": "Звук ALSA",
+    "name": "alsamixer",
+    "command": "alsamixer",
+    "version": "1.2.16-1",
+    "source": "alsa-utils",
+    "executable": "/usr/bin/alsamixer",
+    "id": "alsamixer"
+  },
+  {
+    "group": "Мониторы Hyprland",
+    "name": "hyprmoncfg",
+    "command": "hyprmoncfg",
+    "version": "1.18.3-1",
+    "source": "hyprmoncfg",
+    "executable": "/usr/bin/hyprmoncfg",
+    "id": "hyprmoncfg"
+  },
+  {
+    "group": "Разметка дисков",
+    "name": "cfdisk",
+    "command": "cfdisk",
+    "version": "2.42.4-1",
+    "source": "util-linux",
+    "executable": "/usr/bin/cfdisk",
+    "id": "cfdisk"
+  },
+  {
+    "group": "Интерактивный поиск",
+    "name": "fzf",
+    "command": "fzf",
+    "version": "0.74.5-1",
+    "source": "fzf",
+    "executable": "/usr/bin/fzf",
+    "id": "fzf"
+  },
+  {
+    "group": "Интерактивный поиск",
+    "name": "Television",
+    "command": "tv",
+    "version": "0.15.9-1",
+    "source": "television",
+    "executable": "/usr/bin/tv",
+    "id": "tv"
+  },
+  {
+    "group": "История команд",
+    "name": "Atuin",
+    "command": "atuin search -i",
+    "version": "18.24.1-1",
+    "source": "atuin",
+    "executable": "/usr/bin/atuin",
+    "id": "atuin"
+  },
+  {
+    "group": "Просмотр текста",
+    "name": "less",
+    "command": "less файл",
+    "version": "1:710-1",
+    "source": "less",
+    "executable": "/usr/bin/less",
+    "id": "less"
+  },
+  {
+    "group": "Просмотр текста",
+    "name": "more",
+    "command": "more файл",
+    "version": "2.42.4-1",
+    "source": "util-linux",
+    "executable": "/usr/bin/more",
+    "id": "more"
+  },
+  {
+    "group": "Агент разработки",
+    "name": "Codex",
+    "command": "codex",
+    "version": "0.164.0",
+    "source": "mise:codex",
+    "executable": "~/.local/share/mise/installs/codex/latest/bin/codex",
+    "id": "codex"
+  },
+  {
+    "group": "Агент разработки",
+    "name": "Claude Code",
+    "command": "claude",
+    "version": "2.1.311",
+    "source": "mise:claude",
+    "executable": "~/.local/share/mise/installs/claude/latest/claude",
+    "id": "claude"
+  },
+  {
+    "group": "Агент разработки",
+    "name": "OpenCode",
+    "command": "opencode",
+    "version": "2.1.4",
+    "source": "mise:opencode",
+    "executable": "~/.local/share/mise/installs/opencode/latest/node_modules/.bin/opencode",
+    "id": "opencode"
+  },
+  {
+    "group": "Агент разработки",
+    "name": "Cursor Agent",
+    "command": "cursor-agent",
+    "version": "2026.10.22-27dcf5f",
+    "source": "mise:cursor-agent",
+    "executable": "~/.local/share/mise/installs/cursor-agent/latest/bin/cursor-agent",
+    "id": "cursor-agent"
+  },
+  {
+    "id": "glab-tui",
+    "name": "glab-tui",
+    "group": "GitLab / GitHub",
+    "command": "glab-tui",
+    "version": "0.9.3",
+    "source": "локальный бинарник",
+    "executable": "~/.local/bin/glab-tui"
+  },
+  {
+    "id": "aerc",
+    "name": "aerc",
+    "group": "Почта",
+    "command": "aerc",
+    "version": "0.22.0-1",
+    "source": "aerc",
+    "executable": "/usr/bin/aerc"
+  },
+  {
+    "id": "forge-deck",
+    "name": "Forge Deck",
+    "group": "GitLab / GitHub",
+    "command": "forge-deck",
+    "version": "0.3.0",
+    "source": "собственный Rust-клиент, ранее GitLab Deck",
+    "executable": "~/.local/bin/forge-deck"
+  }
+]

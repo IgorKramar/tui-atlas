@@ -1,0 +1,7 @@
+/target/
+/.local/
+*.log
+/docs/plans/
+/docs/verification.md
+/docs/solutions/
+/CLAUDE.md
