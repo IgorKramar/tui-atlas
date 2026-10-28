@@ -561,6 +561,12 @@ mod tests {
                         assert!(screen.contains(language.text("Увеличьте", "Resize")));
                     } else {
                         assert!(screen.contains(language.text("ПОИСК ПРИЛОЖЕНИЯ", "FIND AN APP")));
+                        if width > 100 {
+                            assert!(
+                                screen.contains("OFFLINE"),
+                                "wide header must fit both languages"
+                            );
+                        }
                     }
                 }
                 if width > 100 {

@@ -13,7 +13,9 @@ import tempfile
 
 TARGETS = ("x86_64-unknown-linux-gnu", "aarch64-unknown-linux-gnu")
 PUBLIC_DOCS = {
-    "tui-atlas": ["docs/data-contract.md", "docs/screenshots/overview.png"],
+    "tui-atlas": ["docs/data-contract.md", "docs/data-contract.ru.md",
+                  "docs/screenshots/overview.png", "docs/screenshots/shortcuts.png",
+                  "docs/screenshots/ru/overview.png", "docs/screenshots/ru/shortcuts.png"],
     "forge-deck": [
         "docs/adr/0001-terminal-and-authentication.md", "docs/adr/0002-multiple-forges.md",
         "docs/screenshots/projects.png", "docs/screenshots/pipelines.png", "docs/screenshots/settings.png",

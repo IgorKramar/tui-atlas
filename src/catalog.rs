@@ -266,6 +266,25 @@ mod tests {
                     .map(|d| &d.location)
                     .collect::<Vec<_>>()
             );
+            for (before, after) in original
+                .guide
+                .examples
+                .iter()
+                .zip(&translated.guide.examples)
+            {
+                assert_eq!(
+                    before.command.split_whitespace().next(),
+                    after.command.split_whitespace().next()
+                );
+                let flags = |command: &str| {
+                    command
+                        .split_whitespace()
+                        .filter(|word| word.starts_with('-'))
+                        .map(|word| word.split('=').next().unwrap().to_owned())
+                        .collect::<Vec<_>>()
+                };
+                assert_eq!(flags(&before.command), flags(&after.command));
+            }
             let mut fields = original.clone();
             display_fields(&mut fields.info, &mut fields.guide, |field| {
                 assert!(translated.search_text.contains(&field.to_lowercase()));
